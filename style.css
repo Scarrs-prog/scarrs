@@ -84,13 +84,12 @@ nav a:hover {
     margin-top: 40px;
 }
 
-.card {
-    background: white;
-    padding: 25px;
-    width: 280px;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    transition: 0.3s;
+.card img {
+    width: 100%;
+    max-height: 130px;   /* controls image height */
+    object-fit: cover;   /* keeps image proportional */
+    border-radius: 10px;
+    display: block;
 }
 
 .card:hover {
