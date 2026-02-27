@@ -80,25 +80,29 @@ nav a:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 25px;
     margin-top: 40px;
 }
 
+
 .card img {
     width: 100%;
-    max-height: 130px;   /* controls image height */
-    object-fit: cover;   /* keeps image proportional */
-    border-radius: 10px;
-    display: block;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
 .card {
-    width: 280px;   /* fixed clean width */
-    background: white;
+    width: 280px;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
 }
+
+
 
 .card:hover {
     transform: translateY(-8px);
