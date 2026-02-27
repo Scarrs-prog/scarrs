@@ -15,12 +15,27 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: url("https://giphy.com/gifs/funny-loan-ehr-11zyJuJXMxxJFm") center/cover no-repeat;
     color: white;
-    padding: 60px 20px;
+    padding: 120px 20px;
     text-align: center;
+    position: relative;
 }
 
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+header * {
+    position: relative;
+    z-index: 2;
+}
 header h1 {
     font-size: 40px;
     margin-bottom: 15px;
