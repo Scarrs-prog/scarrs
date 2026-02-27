@@ -92,6 +92,14 @@ nav a:hover {
     display: block;
 }
 
+.card {
+    width: 280px;   /* fixed clean width */
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
 .card:hover {
     transform: translateY(-8px);
 }
