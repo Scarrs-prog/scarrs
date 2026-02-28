@@ -68,20 +68,20 @@ nav a:hover {
 /* Button */
 .btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background: #00c6ff;
-    color: white;
+    padding: 12px 28px;
     border-radius: 30px;
+    background: #0071e3;
+    color: white;
+    font-weight: 500;
     text-decoration: none;
-    font-weight: bold;
     transition: 0.3s;
 }
 
 .btn:hover {
-    background: #0072ff;
-    transform: translateY(-3px);
-}
+    background: #005bb5;
+    }
+
+
 
 .section {
     padding: 100px 20px;
