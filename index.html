@@ -3,317 +3,434 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Earning Guide - Startup</title>
+<title>EarningGuide | Smart Earning Platform</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
+/* ---------------- ROOT VARIABLES ---------------- */
+
 :root {
   --bg: #ffffff;
-  --text: #111;
-  --card: rgba(255,255,255,0.6);
-  --border: rgba(255,255,255,0.3);
+  --text: #0f172a;
+  --muted: #64748b;
+  --card: rgba(255,255,255,0.7);
+  --border: rgba(0,0,0,0.05);
+  --primary: #6366f1;
+  --gradient: linear-gradient(90deg,#6366f1,#ec4899);
 }
 
 body.dark {
   --bg: #0f172a;
   --text: #f1f5f9;
-  --card: rgba(30,41,59,0.6);
-  --border: rgba(255,255,255,0.1);
+  --muted: #94a3b8;
+  --card: rgba(30,41,59,0.7);
+  --border: rgba(255,255,255,0.08);
 }
 
+/* ---------------- GLOBAL ---------------- */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+  scroll-behavior:smooth;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  transition: 0.4s ease;
+  background:var(--bg);
+  color:var(--text);
+  transition:0.4s ease;
+  overflow-x:hidden;
 }
 
-/* Floating blobs */
-
-.blob {
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.3;
-  z-index: -1;
-  animation: float 15s infinite alternate;
+section {
+  padding:120px 10%;
 }
 
-.blob1 { background: #a855f7; top: -100px; left: -100px; }
-.blob2 { background: #3b82f6; bottom: -150px; right: -100px; }
-.blob3 { background: #ec4899; top: 200px; right: 200px; }
-
-@keyframes float {
-  from { transform: translateY(0px); }
-  to { transform: translateY(100px); }
+h1,h2,h3 {
+  font-weight:800;
 }
 
-/* Navbar */
-
-nav {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  padding: 15px 40px;
-  backdrop-filter: blur(20px);
-  background: var(--card);
-  border-radius: 50px;
-  border: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-}
-
-nav a {
-  text-decoration: none;
-  margin: 0 15px;
-  color: var(--text);
-  font-weight: 500;
+p {
+  color:var(--muted);
+  line-height:1.7;
 }
 
 button {
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
+  padding:12px 25px;
+  border-radius:50px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
 }
 
 .primary {
-  background: linear-gradient(45deg,#6366f1,#ec4899);
-  color: white;
+  background:var(--gradient);
+  color:#fff;
 }
 
 .primary:hover {
-  transform: scale(1.05);
+  transform:scale(1.05);
 }
 
-/* Hero */
+.outline {
+  background:transparent;
+  border:1px solid var(--border);
+}
+
+/* ---------------- GLASS NAVBAR ---------------- */
+
+nav {
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  backdrop-filter:blur(20px);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:50px;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+nav a {
+  text-decoration:none;
+  margin:0 15px;
+  color:var(--text);
+  font-weight:500;
+}
+
+/* ---------------- HERO ---------------- */
 
 .hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 100px 20px;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
 .hero h1 {
-  font-size: 60px;
-  font-weight: 800;
+  font-size:64px;
+  max-width:800px;
 }
 
 .hero p {
-  margin: 20px 0;
-  font-size: 20px;
-  opacity: 0.8;
+  margin:25px 0;
+  font-size:20px;
 }
 
-/* Counters */
-
-.counters {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  padding: 100px 20px;
+.hero-buttons {
+  display:flex;
+  gap:20px;
 }
 
-.counter-box {
-  text-align: center;
+/* ---------------- TRUST SECTION ---------------- */
+
+.trust {
+  text-align:center;
+  opacity:0.7;
 }
 
-.counter-box h2 {
-  font-size: 40px;
+.trust-logos {
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  font-weight:600;
 }
 
-/* Pricing */
+/* ---------------- METRICS ---------------- */
 
-.pricing {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 100px 20px;
+.metrics {
+  display:flex;
+  justify-content:space-between;
+  text-align:center;
 }
 
-.card {
-  padding: 40px;
-  border-radius: 20px;
-  backdrop-filter: blur(20px);
-  background: var(--card);
-  border: 1px solid var(--border);
-  width: 280px;
-  text-align: center;
-  transition: 0.3s;
+.metric h2 {
+  font-size:48px;
 }
 
-.card:hover {
-  transform: translateY(-10px);
+/* ---------------- FEATURES ---------------- */
+
+.features-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+  margin-top:60px;
 }
 
-.card h3 {
-  margin-bottom: 15px;
+.feature-card {
+  padding:40px;
+  border-radius:20px;
+  background:var(--card);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  transition:0.3s;
 }
 
-/* Modal */
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
+.feature-card:hover {
+  transform:translateY(-10px);
 }
 
-.modal-content {
-  padding: 40px;
-  background: var(--card);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  width: 300px;
-  text-align: center;
+/* ---------------- PRICING ---------------- */
+
+.pricing-grid {
+  display:flex;
+  gap:40px;
+  justify-content:center;
+  margin-top:60px;
 }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 10px;
-  border: none;
+.price-card {
+  width:300px;
+  padding:50px;
+  border-radius:20px;
+  text-align:center;
+  background:var(--card);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  transition:0.3s;
 }
+
+.price-card.highlight {
+  transform:scale(1.05);
+  border:2px solid var(--primary);
+}
+
+/* ---------------- TESTIMONIALS ---------------- */
+
+.testimonials {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:40px;
+  margin-top:60px;
+}
+
+.testimonial {
+  padding:40px;
+  border-radius:20px;
+  background:var(--card);
+  border:1px solid var(--border);
+}
+
+/* ---------------- FAQ ---------------- */
+
+.faq-item {
+  margin-bottom:20px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:15px;
+}
+
+.faq-question {
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* ---------------- CTA ---------------- */
+
+.cta {
+  text-align:center;
+}
+
+/* ---------------- FOOTER ---------------- */
 
 footer {
-  padding: 40px;
-  text-align: center;
-  opacity: 0.6;
+  text-align:center;
+  padding:60px;
+  opacity:0.6;
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+.fade {
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s ease;
+}
+
+.fade.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:768px){
+  .hero h1{font-size:40px;}
+  .metrics{flex-direction:column;gap:40px;}
+  .pricing-grid{flex-direction:column;align-items:center;}
 }
 
 </style>
 </head>
 <body>
 
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
-
 <nav>
-  <div><strong>EarningGuide</strong></div>
+  <strong>EarningGuide</strong>
   <div>
-    <a href="#">Home</a>
-    <a href="#">Pricing</a>
-    <a href="#">Blog</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
     <button onclick="toggleDark()">🌗</button>
-    <button onclick="openModal()" class="primary">Login</button>
   </div>
 </nav>
 
 <section class="hero">
-  <div>
-    <h1>Earn Smart. Grow Faster.</h1>
-    <p>India’s modern earning platform for creators & students.</p>
-    <button class="primary">Get Started</button>
+  <h1 class="fade">India’s Smartest Platform to Learn & Scale Online Earnings</h1>
+  <p class="fade">Structured guides, real data insights & premium growth tools — built for the next generation.</p>
+  <div class="hero-buttons fade">
+    <button class="primary">Start Free</button>
+    <button class="outline">Investor Deck</button>
   </div>
 </section>
 
-<section class="counters">
-  <div class="counter-box">
-    <h2 id="count1">0</h2>
-    <p>Users</p>
-  </div>
-  <div class="counter-box">
-    <h2 id="count2">0</h2>
-    <p>Earned ₹</p>
-  </div>
-  <div class="counter-box">
-    <h2 id="count3">0</h2>
-    <p>Guides</p>
+<section class="trust">
+  <h3>Trusted by ambitious creators & students</h3>
+  <div class="trust-logos">
+    <span>Startup India</span>
+    <span>Creator Hub</span>
+    <span>FinTech Labs</span>
+    <span>Student Network</span>
   </div>
 </section>
 
-<section class="pricing">
-  <div class="card">
-    <h3>Free</h3>
-    <p>Basic earning guides</p>
-    <h2>₹0</h2>
+<section class="metrics fade">
+  <div class="metric">
+    <h2 id="m1">0</h2>
+    <p>Active Users</p>
   </div>
-  <div class="card">
-    <h3>Pro</h3>
-    <p>Advanced strategies</p>
-    <h2>₹499</h2>
+  <div class="metric">
+    <h2 id="m2">0</h2>
+    <p>Total Earnings ₹</p>
   </div>
-  <div class="card">
-    <h3>Elite</h3>
-    <p>All premium access</p>
-    <h2>₹999</h2>
+  <div class="metric">
+    <h2 id="m3">0</h2>
+    <p>Premium Guides</p>
   </div>
+</section>
+
+<section id="features">
+  <h2 class="fade">Built for Growth</h2>
+  <div class="features-grid fade">
+    <div class="feature-card">
+      <h3>Structured Learning</h3>
+      <p>Step-by-step earning frameworks designed for beginners to scale.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Data-Driven Insights</h3>
+      <p>Real income data & performance breakdowns for smarter decisions.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Premium Tools</h3>
+      <p>Templates, calculators & automation resources.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2 class="fade">Simple Pricing</h2>
+  <div class="pricing-grid fade">
+    <div class="price-card">
+      <h3>Starter</h3>
+      <h2>₹0</h2>
+      <p>Basic Guides</p>
+    </div>
+    <div class="price-card highlight">
+      <h3>Growth</h3>
+      <h2>₹499</h2>
+      <p>Advanced Systems</p>
+    </div>
+    <div class="price-card">
+      <h3>Elite</h3>
+      <h2>₹999</h2>
+      <p>Full Access + Community</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials fade">
+  <div class="testimonial">
+    <p>“This platform helped me earn my first ₹25,000 online.”</p>
+    <strong>— Student Creator</strong>
+  </div>
+  <div class="testimonial">
+    <p>“Professional structure & real strategies. Not fake hype.”</p>
+    <strong>— Freelancer</strong>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Is this beginner friendly?</div>
+    <p style="display:none;">Yes, we start from basics and scale gradually.</p>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFAQ(this)">Is there community support?</div>
+    <p style="display:none;">Elite members get exclusive community access.</p>
+  </div>
+</section>
+
+<section class="cta fade">
+  <h2>Ready to Scale?</h2>
+  <p>Join thousands building real online income streams.</p>
+  <button class="primary">Get Started Today</button>
 </section>
 
 <footer>
-  © 2026 EarningGuide. All rights reserved.
+  © 2026 EarningGuide. Built for future builders.
 </footer>
-
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h3>Login</h3>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button class="primary">Login</button>
-  </div>
-</div>
 
 <script>
 
-function toggleDark() {
+/* DARK MODE */
+function toggleDark(){
   document.body.classList.toggle("dark");
 }
 
-function openModal() {
-  document.getElementById("modal").style.display = "flex";
+/* FAQ */
+function toggleFAQ(el){
+  let p = el.nextElementSibling;
+  p.style.display = p.style.display === "none" ? "block" : "none";
 }
 
-window.onclick = function(e) {
-  if(e.target == document.getElementById("modal")) {
-    document.getElementById("modal").style.display = "none";
-  }
+/* METRIC COUNTER */
+function animate(id,end){
+  let start=0;
+  let step=end/200;
+  let counter=setInterval(()=>{
+    start+=step;
+    document.getElementById(id).innerText=Math.floor(start);
+    if(start>=end) clearInterval(counter);
+  },10);
 }
 
-/* Counter Animation */
-
-function animate(id, end) {
-  let start = 0;
-  let speed = end / 200;
-  let counter = setInterval(function() {
-    start += speed;
-    document.getElementById(id).innerText = Math.floor(start);
-    if(start >= end) clearInterval(counter);
-  }, 10);
+window.onload=()=>{
+  animate("m1",12000);
+  animate("m2",850000);
+  animate("m3",150);
 }
 
-window.onload = function() {
-  animate("count1", 10000);
-  animate("count2", 500000);
-  animate("count3", 200);
-}
+/* SCROLL ANIMATION */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
 
 </script>
 
 </body>
-</html>
+  </html>
