@@ -1,43 +1,319 @@
-<header>
-    <h1>Welcome to Scarrs</h1>
-    <p>Learn Smart Ways to Earn Money Online</p>
-    <a href="earning.html" class="btn">Start Learning</a>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earning Guide - Startup</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --card: rgba(255,255,255,0.6);
+  --border: rgba(255,255,255,0.3);
+}
+
+body.dark {
+  --bg: #0f172a;
+  --text: #f1f5f9;
+  --card: rgba(30,41,59,0.6);
+  --border: rgba(255,255,255,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: 0.4s ease;
+}
+
+/* Floating blobs */
+
+.blob {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+  z-index: -1;
+  animation: float 15s infinite alternate;
+}
+
+.blob1 { background: #a855f7; top: -100px; left: -100px; }
+.blob2 { background: #3b82f6; bottom: -150px; right: -100px; }
+.blob3 { background: #ec4899; top: 200px; right: 200px; }
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(100px); }
+}
+
+/* Navbar */
+
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  padding: 15px 40px;
+  backdrop-filter: blur(20px);
+  background: var(--card);
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+nav a {
+  text-decoration: none;
+  margin: 0 15px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primary {
+  background: linear-gradient(45deg,#6366f1,#ec4899);
+  color: white;
+}
+
+.primary:hover {
+  transform: scale(1.05);
+}
+
+/* Hero */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 800;
+}
+
+.hero p {
+  margin: 20px 0;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+/* Counters */
+
+.counters {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 100px 20px;
+}
+
+.counter-box {
+  text-align: center;
+}
+
+.counter-box h2 {
+  font-size: 40px;
+}
+
+/* Pricing */
+
+.pricing {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 100px 20px;
+}
+
+.card {
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  width: 280px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+}
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  padding: 40px;
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+}
+
+footer {
+  padding: 40px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+</style>
+</head>
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="earning.html">Earning</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+  <div><strong>EarningGuide</strong></div>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Pricing</a>
+    <a href="#">Blog</a>
+    <button onclick="toggleDark()">🌗</button>
+    <button onclick="openModal()" class="primary">Login</button>
+  </div>
 </nav>
-<link rel="stylesheet" href="style.css">
 
-<section class="section">
-    <h2>How You Can Earn</h2>
+<section class="hero">
+  <div>
+    <h1>Earn Smart. Grow Faster.</h1>
+    <p>India’s modern earning platform for creators & students.</p>
+    <button class="primary">Get Started</button>
+  </div>
+</section>
 
-    <div class="card-container">
-        <div class="card">
-            
-        <div class="card" data-aos="zoom-in">
-    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Freelancing">
-    <h3>Freelancing</h3>
-    <p>Offer your skills and earn from clients worldwide.</p>
-</div>
+<section class="counters">
+  <div class="counter-box">
+    <h2 id="count1">0</h2>
+    <p>Users</p>
+  </div>
+  <div class="counter-box">
+    <h2 id="count2">0</h2>
+    <p>Earned ₹</p>
+  </div>
+  <div class="counter-box">
+    <h2 id="count3">0</h2>
+    <p>Guides</p>
+  </div>
+</section>
 
-<div class="card" data-aos="zoom-in" data-aos-delay="100">
-    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" alt="Blogging">
-    <h3>Blogging</h3>
-    <p>Create content and earn through ads and partnerships.</p>
-</div>
-
-<div class="card" data-aos="zoom-in" data-aos-delay="200">
-    <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="Affiliate Marketing">
-    <h3>Affiliate Marketing</h3>
-    <p>Promote products and earn commission per sale.</p>
-</div>
-        
+<section class="pricing">
+  <div class="card">
+    <h3>Free</h3>
+    <p>Basic earning guides</p>
+    <h2>₹0</h2>
+  </div>
+  <div class="card">
+    <h3>Pro</h3>
+    <p>Advanced strategies</p>
+    <h2>₹499</h2>
+  </div>
+  <div class="card">
+    <h3>Elite</h3>
+    <p>All premium access</p>
+    <h2>₹999</h2>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 Scarrs | All Rights Reserved</p>
+  © 2026 EarningGuide. All rights reserved.
 </footer>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Login</h3>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button class="primary">Login</button>
+  </div>
+</div>
+
+<script>
+
+function toggleDark() {
+  document.body.classList.toggle("dark");
+}
+
+function openModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+window.onclick = function(e) {
+  if(e.target == document.getElementById("modal")) {
+    document.getElementById("modal").style.display = "none";
+  }
+}
+
+/* Counter Animation */
+
+function animate(id, end) {
+  let start = 0;
+  let speed = end / 200;
+  let counter = setInterval(function() {
+    start += speed;
+    document.getElementById(id).innerText = Math.floor(start);
+    if(start >= end) clearInterval(counter);
+  }, 10);
+}
+
+window.onload = function() {
+  animate("count1", 10000);
+  animate("count2", 500000);
+  animate("count3", 200);
+}
+
+</script>
+
+</body>
+</html>
