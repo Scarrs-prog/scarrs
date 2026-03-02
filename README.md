@@ -1,5 +1,5 @@
 
-# Scarrs Blackprint
+# Scarrs Blackprint: The Dark Strategy of Wealth Building
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?size=28&duration=3000&color=0071E3&center=true&vCenter=true&width=600&lines=Scarrs+Online+Earning+Platform;Beginner+Friendly+Income+Guide;Clean+%26+Modern+UI+Design" />
