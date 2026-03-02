@@ -3,347 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EarningGuide – Enterprise Edition</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>Scarrs Blackprint | Premium Income Systems</title>
+<meta name="description" content="Scarrs Blackprint is a premium tech platform helping creators build scalable online income systems through structured earning frameworks.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* ============================= */
-/* ROOT VARIABLES */
-/* ============================= */
+/* ================= ROOT ================= */
 
-:root {
-  --bg: #f8fafc;
-  --text: #0f172a;
-  --card: #ffffff;
-  --accent: #6366f1;
-  --muted: #64748b;
+:root{
+  --bg:#0b0f19;
+  --card:#121826;
+  --text:#ffffff;
+  --muted:#8b9bb4;
+  --accent:#7c3aed;
+  --accent2:#00f0ff;
 }
 
-body.dark {
-  --bg: #0f172a;
-  --text: #f1f5f9;
-  --card: #1e293b;
-  --muted: #94a3b8;
+body.light{
+  --bg:#f5f7fa;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
 }
 
-/* ============================= */
-/* GLOBAL */
-/* ============================= */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Inter",sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
+body{
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  transition:0.4s;
 }
 
-body {
-  background: radial-gradient(circle at 20% 20%, #dbeafe, transparent 40%),
-              radial-gradient(circle at 80% 80%, #e0e7ff, transparent 40%),
-              var(--bg);
-  color: var(--text);
-  transition: 0.4s ease;
-  overflow-x: hidden;
-  line-height: 1.6;
+section{
+  padding:100px 8%;
 }
 
-section {
-  padding: 100px 10%;
+h1,h2,h3{
+  font-weight:800;
 }
 
-h1, h2, h3 {
-  font-weight: 800;
+p{
+  color:var(--muted);
 }
 
-p {
-  color: var(--muted);
+/* ================= PARTICLE BG ================= */
+
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
 }
 
-/* ============================= */
-/* ANNOUNCEMENT BAR */
-/* ============================= */
+/* ================= NAVBAR ================= */
 
-.announcement {
-  background: var(--accent);
-  color: white;
-  text-align: center;
-  padding: 10px;
-  font-size: 0.9rem;
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(15px);
+  background:rgba(10,15,30,0.6);
+  z-index:1000;
 }
 
-/* ============================= */
-/* NAVBAR */
-/* ============================= */
-
-nav {
-  position: fixed;
-  width: 100%;
-  padding: 20px 10%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(20px);
-  background: rgba(255,255,255,0.6);
-  z-index: 100;
+nav h2{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-body.dark nav {
-  background: rgba(15,23,42,0.6);
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
 }
 
-nav ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
+nav a{
+  text-decoration:none;
+  color:var(--muted);
+  transition:0.3s;
 }
 
-nav li {
-  cursor: pointer;
-  font-weight: 500;
+nav a:hover{
+  color:var(--accent2);
 }
 
-.nav-btn {
-  background: var(--accent);
-  color: white;
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
+.toggle{
+  cursor:pointer;
 }
 
-.toggle {
-  margin-left: 15px;
-  cursor: pointer;
+/* ================= HERO ================= */
+
+.hero{
+  text-align:center;
+  padding-top:180px;
+  opacity:0;
+  animation:fadeIn 1.5s forwards;
 }
 
-/* ============================= */
-/* HERO */
-/* ============================= */
-
-.hero {
-  padding-top: 180px;
-  text-align: center;
+.hero h1{
+  font-size:3.5rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
+.btn{
+  display:inline-block;
+  margin-top:40px;
+  padding:15px 35px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:white;
+  transition:0.3s;
 }
 
-.hero p {
-  max-width: 600px;
-  margin: auto;
-  margin-bottom: 30px;
+.btn:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(124,58,237,0.4);
 }
 
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 60px;
+/* ================= GRID / 3D CARDS ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
 }
 
-.btn-primary {
-  background: var(--accent);
-  color: white;
-  padding: 12px 25px;
-  border-radius: 30px;
-  cursor: pointer;
+.card{
+  background:var(--card);
+  padding:40px;
+  border-radius:20px;
+  transition:0.4s;
+  transform-style:preserve-3d;
 }
 
-.btn-secondary {
-  border: 1px solid var(--muted);
-  padding: 12px 25px;
-  border-radius: 30px;
-  cursor: pointer;
+.card:hover{
+  transform:rotateY(10deg) rotateX(5deg);
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
 }
 
-.hero img {
-  width: 90%;
-  max-width: 900px;
-  border-radius: 20px;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+/* ================= COUNTERS ================= */
+
+.counter{
+  font-size:2.5rem;
+  margin-top:10px;
 }
 
-/* ============================= */
-/* TRUSTED BRANDS */
-/* ============================= */
+/* ================= GROWTH BARS ================= */
 
-.brands {
-  text-align: center;
+.bar{
+  height:8px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  width:0;
+  margin:15px 0;
+  border-radius:10px;
+  animation:grow 2s forwards;
 }
 
-.brands-logos {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  opacity: 0.6;
+@keyframes grow{
+  from{width:0;}
 }
 
-/* ============================= */
-/* FEATURES GRID */
-/* ============================= */
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-  gap: 40px;
+@keyframes fadeIn{
+  to{opacity:1;}
 }
 
-.feature-card {
-  background: var(--card);
-  padding: 40px;
-  border-radius: 20px;
-  transition: 0.4s;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+/* ================= MODAL ================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
 }
 
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+.modal-content{
+  background:var(--card);
+  padding:40px;
+  border-radius:20px;
+  width:300px;
+  text-align:center;
 }
 
-/* ============================= */
-/* STATS */
-/* ============================= */
-
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  text-align: center;
-  flex-wrap: wrap;
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
+  outline:none;
 }
 
-.stat h2 {
-  font-size: 2.5rem;
+/* ================= BLOG ================= */
+
+.blog{
+  background:var(--card);
+  padding:30px;
+  border-radius:20px;
+  margin-bottom:20px;
+  transition:0.3s;
 }
 
-/* ============================= */
-/* PRICING TABLE */
-/* ============================= */
-
-.pricing-table {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+.blog:hover{
+  transform:translateY(-5px);
 }
 
-.price-card {
-  background: var(--card);
-  padding: 50px;
-  border-radius: 25px;
-  width: 300px;
-  text-align: center;
-  transition: 0.4s;
-}
-
-.price-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-}
-
-.price {
-  font-size: 2rem;
-  margin: 20px 0;
-}
-
-/* ============================= */
-/* FAQ */
-/* ============================= */
-
-.faq-item {
-  margin-bottom: 20px;
-  background: var(--card);
-  padding: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.faq-answer {
-  display: none;
-  margin-top: 10px;
-}
-
-/* ============================= */
-/* BLOG */
-/* ============================= */
-
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 40px;
-}
-
-.blog-card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 15px;
-  transition: 0.4s;
-}
-
-.blog-card:hover {
-  transform: translateY(-8px);
-}
-
-/* ============================= */
-/* CTA */
-/* ============================= */
-
-.cta {
-  text-align: center;
-  background: var(--accent);
-  color: white;
-  border-radius: 20px;
-  padding: 60px;
-}
-
-/* ============================= */
-/* FOOTER */
-/* ============================= */
-
-footer {
-  padding: 80px 10%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 40px;
-  font-size: 0.9rem;
-}
-
-footer h4 {
-  margin-bottom: 15px;
-}
-
-footer ul {
-  list-style: none;
-}
-
-footer li {
-  margin-bottom: 8px;
-  cursor: pointer;
-}
-
-/* ============================= */
-/* SCROLL ANIMATION */
-/* ============================= */
-
-.hidden {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 1s ease;
-}
-
-.show {
-  opacity: 1;
-  transform: translateY(0);
+footer{
+  text-align:center;
+  padding:50px;
+  color:var(--muted);
 }
 
 </style>
@@ -351,187 +239,105 @@ footer li {
 
 <body>
 
-<div class="announcement">
-🚀 New 2026 Growth Framework Released
-</div>
+<canvas id="particles"></canvas>
 
 <nav>
-<h2>EarningGuide</h2>
+<h2>Scarrs Blackprint</h2>
 <ul>
-<li>Features</li>
-<li>Pricing</li>
-<li>Blog</li>
-<li>FAQ</li>
+<li><a href="#systems">Systems</a></li>
+<li><a href="#growth">Growth</a></li>
+<li><a href="#blog">Blog</a></li>
+<li><a href="#" onclick="openModal()">Login</a></li>
+<li class="toggle" onclick="toggleTheme()">🌙</li>
 </ul>
-<div>
-<span class="nav-btn">Get Started</span>
-<span class="toggle" onclick="toggleMode()">🌙</span>
-</div>
 </nav>
 
 <section class="hero">
-<h1>Build Scalable Online Income Systems</h1>
-<p>Enterprise-level earning frameworks, automation tools and analytics dashboards designed for serious creators.</p>
-<div class="hero-buttons">
-<div class="btn-primary">Start Free</div>
-<div class="btn-secondary">View Demo</div>
-</div>
-<img src="https://images.unsplash.com/photo-1556155092-490a1ba16284">
+<h1>Architect Your Income System</h1>
+<p>Premium structured frameworks for creators & freelancers to scale online income.</p>
+<a href="#systems" class="btn">Explore Systems</a>
 </section>
 
-<section class="brands">
-<h2>Trusted by Digital Creators Worldwide</h2>
-<div class="brands-logos">
-<span>Stripe</span>
-<span>Notion</span>
-<span>Shopify</span>
-<span>Upwork</span>
+<section id="systems">
+<h2 style="text-align:center;margin-bottom:60px;">Core Systems</h2>
+<div class="grid">
+<div class="card">
+<h3>Freelance OS</h3>
+<p>Client acquisition & scaling frameworks.</p>
+<div class="counter" data-target="120">0</div>
+<p>Active Builders</p>
 </div>
-</section>
 
-<section>
-<h2 style="text-align:center;margin-bottom:60px;">Powerful Features</h2>
-<div class="features-grid">
-<div class="feature-card hidden">
-<h3>Automation Systems</h3>
-<p>Reduce manual work with pre-built workflows.</p>
+<div class="card">
+<h3>Creator Monetization</h3>
+<p>Audience to revenue systems.</p>
+<div class="counter" data-target="85">0</div>
+<p>Growth Rate %</p>
 </div>
-<div class="feature-card hidden">
-<h3>Revenue Analytics</h3>
-<p>Track income sources with intelligent dashboards.</p>
-</div>
-<div class="feature-card hidden">
-<h3>Scaling Frameworks</h3>
-<p>Proven blueprints to grow faster.</p>
+
+<div class="card">
+<h3>Digital Asset Engine</h3>
+<p>Create once. Sell infinitely.</p>
+<div class="counter" data-target="240">0</div>
+<p>Templates Sold</p>
 </div>
 </div>
 </section>
 
-<section>
-<div class="stats">
-<div class="stat hidden">
-<h2 class="counter" data-target="12000">0</h2>
-<p>Active Users</p>
-</div>
-<div class="stat hidden">
-<h2 class="counter" data-target="850000">0</h2>
-<p>Total Earnings ₹</p>
-</div>
-<div class="stat hidden">
-<h2 class="counter" data-target="150">0</h2>
-<p>Premium Guides</p>
-</div>
-</div>
+<section id="growth">
+<h2 style="text-align:center;margin-bottom:60px;">Growth Projection</h2>
+<div class="bar" style="width:60%;animation-delay:0s;"></div>
+<div class="bar" style="width:80%;animation-delay:0.4s;"></div>
+<div class="bar" style="width:95%;animation-delay:0.8s;"></div>
 </section>
 
-<section>
-<h2 style="text-align:center;margin-bottom:60px;">Simple Pricing</h2>
-<div class="pricing-table">
-<div class="price-card hidden">
-<h3>Starter</h3>
-<div class="price">₹0</div>
-<p>Basic Guides</p>
-</div>
-<div class="price-card hidden">
-<h3>Growth</h3>
-<div class="price">₹499</div>
-<p>Advanced Systems</p>
-</div>
-<div class="price-card hidden">
-<h3>Elite</h3>
-<div class="price">₹999</div>
-<p>Full Access + Community</p>
-</div>
-</div>
-</section>
+<section id="blog">
+<h2 style="text-align:center;margin-bottom:60px;">Latest Insights</h2>
 
-<section>
-<h2 style="text-align:center;margin-bottom:60px;">FAQ</h2>
-<div class="faq-item" onclick="toggleFAQ(this)">
-<h4>Is it beginner friendly?</h4>
-<div class="faq-answer">Yes. Step-by-step structured learning paths.</div>
+<div class="blog">
+<h3>How to Scale Freelancing in 2026</h3>
+<p>Structured client acquisition frameworks and premium pricing psychology.</p>
 </div>
-<div class="faq-item" onclick="toggleFAQ(this)">
-<h4>Can I scale to full-time income?</h4>
-<div class="faq-answer">Yes, frameworks are designed for growth.</div>
-</div>
-</section>
 
-<section>
-<h2 style="text-align:center;margin-bottom:60px;">From Our Blog</h2>
-<div class="blog-grid">
-<div class="blog-card hidden">
-<h3>Top 5 Passive Income Systems</h3>
-<p>Learn scalable models that work in 2026.</p>
+<div class="blog">
+<h3>Digital Assets vs Active Income</h3>
+<p>Which model scales faster? Complete breakdown.</p>
 </div>
-<div class="blog-card hidden">
-<h3>Freelancing to Agency</h3>
-<p>Transition from solo to scalable business.</p>
-</div>
-</div>
-</section>
 
-<section class="cta">
-<h2>Ready to Build Your Income Engine?</h2>
-<p style="margin-top:20px;">Join thousands of digital earners today.</p>
-<div class="btn-primary" style="margin-top:20px;">Start Now</div>
 </section>
 
 <footer>
-<div>
-<h4>Product</h4>
-<ul>
-<li>Features</li>
-<li>Pricing</li>
-<li>Roadmap</li>
-</ul>
-</div>
-<div>
-<h4>Company</h4>
-<ul>
-<li>About</li>
-<li>Careers</li>
-<li>Contact</li>
-</ul>
-</div>
-<div>
-<h4>Resources</h4>
-<ul>
-<li>Blog</li>
-<li>Community</li>
-<li>Support</li>
-</ul>
-</div>
-<div>
-<h4>Legal</h4>
-<ul>
-<li>Privacy</li>
-<li>Terms</li>
-</ul>
-</div>
+© 2026 Scarrs Blackprint. All rights reserved.
 </footer>
+
+<!-- MODAL -->
+
+<div class="modal" id="authModal">
+<div class="modal-content">
+<h3>Login</h3>
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+<button class="btn" onclick="closeModal()">Enter</button>
+</div>
+</div>
 
 <script>
 
-function toggleMode(){
-document.body.classList.toggle("dark");
+/* THEME */
+function toggleTheme(){
+document.body.classList.toggle("light");
 }
 
-function toggleFAQ(el){
-const answer = el.querySelector(".faq-answer");
-answer.style.display = answer.style.display === "block" ? "none" : "block";
+/* MODAL */
+function openModal(){
+document.getElementById("authModal").style.display="flex";
+}
+function closeModal(){
+document.getElementById("authModal").style.display="none";
 }
 
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-}
-});
-});
-document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
-
-const counters = document.querySelectorAll('.counter');
+/* COUNTERS */
+const counters=document.querySelectorAll('.counter');
 counters.forEach(counter=>{
 const update=()=>{
 const target=+counter.getAttribute('data-target');
@@ -546,6 +352,35 @@ counter.innerText=target;
 };
 update();
 });
+
+/* PARTICLES */
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let particles=[];
+for(let i=0;i<60;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particles.forEach(p=>{
+p.x+=p.dx;
+p.y+=p.dy;
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle="#7c3aed";
+ctx.fill();
+});
+requestAnimationFrame(animate);
+}
+animate();
 
 </script>
 
