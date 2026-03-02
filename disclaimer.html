@@ -1,25 +1,250 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Disclaimer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disclaimer | Scarrs Blackprint</title>
+
+<!-- SEO META -->
+<meta name="description" content="Official Disclaimer of Scarrs Blackprint - Legal, Earnings, and Content Usage Terms.">
+<meta name="keywords" content="Scarrs Blackprint Disclaimer, Earnings Disclaimer, Legal Terms">
+<meta name="author" content="Scarrs Blackprint">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Scarrs Blackprint Disclaimer",
+  "description": "Legal disclaimer and terms for Scarrs Blackprint.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scarrs Blackprint"
+  }
+}
+</script>
+
+<style>
+
+/* ========== GLOBAL DARK PREMIUM THEME ========== */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f0f1b, #121225);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+h1, h2 {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: #aaa;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg,#8a2be2,#00ffff);
+    left: 0;
+    bottom: -4px;
+    transition: 0.4s;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* ========== SIDEBAR ========== */
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    padding: 30px 20px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg,#8a2be2,#00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+/* ========== MAIN CONTENT ========== */
+
+.content {
+    margin-left: 270px;
+    padding: 50px;
+    animation: fadeIn 1.5s ease;
+}
+
+.glass-card {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ========== EXPANDABLE SECTIONS ========== */
+
+details {
+    cursor: pointer;
+}
+
+summary {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ========== BUTTON ========== */
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(90deg,#8a2be2,#00ffff);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+button:hover {
+    box-shadow: 0 0 15px #8a2be2;
+    transform: scale(1.05);
+}
+
+/* ========== SEPARATORS ========== */
+
+.separator {
+    height: 2px;
+    background: linear-gradient(90deg,#8a2be2,#00ffff);
+    margin: 40px 0;
+}
+
+/* ========== FADE IN ANIMATION ========== */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+</style>
 </head>
+
 <body>
 
+<div class="sidebar">
+    <h2>Scarrs Blackprint</h2>
+    <ul>
+        <li><a href="#general">General</a></li>
+        <li><a href="#earnings">Earnings</a></li>
+        <li><a href="#content">Content</a></li>
+        <li><a href="#liability">Liability</a></li>
+    </ul>
+</div>
+
+<div class="content">
+
 <h1>Disclaimer</h1>
+<p>Version: <span id="version">1.0.0</span></p>
+<p>Last Updated: <span id="date"></span></p>
 
-<p>
-All the information provided on this website is for educational purposes only.
-</p>
+<div class="separator"></div>
 
-<p>
-We do not guarantee any earnings. Results may vary depending on effort and skills.
-</p>
+<div class="glass-card" id="general">
+<details>
+<summary>General Disclaimer</summary>
+<p>All content provided on Scarrs Blackprint is for informational purposes only.</p>
+</details>
+</div>
 
-<p>
-We are not responsible for any losses or damages.
-</p>
+<div class="glass-card" id="earnings">
+<details>
+<summary>Earnings Disclaimer</summary>
+<p>We do not guarantee any specific financial results. Your earnings depend on skills, effort, and market conditions.</p>
+</details>
+</div>
 
-<a href="index.html">Back to Home</a>
+<div class="glass-card" id="content">
+<details>
+<summary>Content Usage</summary>
+<p>All materials are protected under intellectual property laws.</p>
+</details>
+</div>
+
+<div class="glass-card" id="liability">
+<details>
+<summary>Limitation of Liability</summary>
+<p>Scarrs Blackprint is not liable for any losses or damages resulting from website usage.</p>
+</details>
+</div>
+
+<div class="separator"></div>
+
+<button onclick="acknowledge()">I Acknowledge</button>
+
+<div class="footer">
+© <span id="year"></span> Scarrs Blackprint. All Rights Reserved.
+</div>
+
+</div>
+
+<script>
+
+/* Auto Date */
+document.getElementById("date").innerHTML = new Date().toDateString();
+document.getElementById("year").innerHTML = new Date().getFullYear();
+
+/* Acknowledge Button */
+function acknowledge(){
+    alert("Thank you for acknowledging the Disclaimer of Scarrs Blackprint.");
+}
+
+/* Smooth Scroll */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))
+        .scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+</script>
 
 </body>
-</html>
+  </html>
