@@ -167,6 +167,12 @@ Online income should be built with strength, not shortcuts.
 <footer>
 © 2026 Scarrs Blackprint. Built with discipline.
 </footer>
-
+<script>
+fetch("navbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("navbar").innerHTML = data;
+  });
+</script>
 </body>
 </html>
