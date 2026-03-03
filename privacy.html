@@ -20,6 +20,12 @@ Any information shared by users is completely safe and not sold or shared with t
 </p>
 
 <a href="index.html">Back to Home</a>
-
+<script>
+fetch("navbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("navbar").innerHTML = data;
+  });
+</script>
 </body>
 </html>
