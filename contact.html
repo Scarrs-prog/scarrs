@@ -1,31 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Contact Us</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Scarrs Blackprint</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f19;
+  --card:#121826;
+  --text:#ffffff;
+  --muted:#8b9bb4;
+  --accent:#7c3aed;
+  --accent2:#00f0ff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Inter",sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* Container */
+.container{
+  max-width:900px;
+  margin:140px auto 80px auto;
+  padding:40px;
+  background:var(--card);
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+h1{
+  font-size:2.5rem;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+p{
+  color:var(--muted);
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+/* Form Styling */
+form{
+  margin-top:30px;
+}
+
+input, textarea{
+  width:100%;
+  padding:15px;
+  margin-bottom:20px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+  background:#0f172a;
+  color:white;
+  font-size:1rem;
+}
+
+textarea{
+  resize:none;
+  height:120px;
+}
+
+button{
+  padding:14px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(124,58,237,0.4);
+}
+
+.contact-info{
+  margin-top:40px;
+  padding:20px;
+  background:#0f172a;
+  border-radius:15px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+}
+</style>
 </head>
+
 <body>
+
 <div id="navbar"></div>
+
+<div class="container">
+
 <h1>Contact Us</h1>
 
 <p>
-If you have any questions, suggestions, or feedback, feel free to contact us.
+Have questions, feedback, or collaboration ideas?  
+We’d love to hear from you. Reach out and our team will respond as soon as possible.
 </p>
 
-<p>
-📧 Email: raigiboy788@gmail.com
-</p>
+<form onsubmit="showMessage(event)">
+  <input type="text" placeholder="Your Name" required>
+  <input type="email" placeholder="Your Email" required>
+  <textarea placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
 
-<p>
-We will try to respond as soon as possible.
-</p>
+<div class="contact-info">
+  <p><strong>Email:</strong> raigiboy788@gmail.com</p>
+  <p>We aim to respond within 24–48 hours.</p>
+</div>
 
-<a href="index.html">Back to Home</a>
+</div>
+
+<footer>
+© 2026 Scarrs Blackprint. All rights reserved.
+</footer>
+
 <script>
 fetch("navbar.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("navbar").innerHTML = data;
   });
+
+function showMessage(e){
+  e.preventDefault();
+  alert("Thank you! Your message has been received.");
+}
 </script>
+
 </body>
-</html>
+  </html>
