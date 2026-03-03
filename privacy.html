@@ -1,25 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Privacy Policy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Scarrs Blackprint</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f19;
+  --card:#121826;
+  --text:#ffffff;
+  --muted:#8b9bb4;
+  --accent:#7c3aed;
+  --accent2:#00f0ff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Inter",sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+.container{
+  max-width:900px;
+  margin:140px auto 80px auto;
+  padding:40px;
+  background:var(--card);
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+h1{
+  font-size:2.5rem;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+h2{
+  margin-top:30px;
+  margin-bottom:10px;
+}
+
+p{
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:15px;
+}
+
+a{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:white;
+  text-decoration:none;
+  border-radius:25px;
+  transition:0.3s;
+}
+
+a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(124,58,237,0.4);
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+}
+</style>
 </head>
+
 <body>
+
 <div id="navbar"></div>
+
+<div class="container">
+
 <h1>Privacy Policy</h1>
 
+<p>Last Updated: 2026</p>
+
+<h2>1. Introduction</h2>
 <p>
-Your privacy is important to us. This website does not collect any personal information from visitors.
+At <strong>Scarrs Blackprint</strong>, your privacy is a priority. 
+We are committed to protecting your information and maintaining transparency in how our platform operates.
 </p>
 
+<h2>2. Information We Collect</h2>
 <p>
-We do not use cookies or tracking tools.
+We do not collect personal data from visitors unless voluntarily provided through forms or communication.
+We do not sell, rent, or trade user information.
 </p>
 
+<h2>3. Cookies & Tracking</h2>
 <p>
-Any information shared by users is completely safe and not sold or shared with third parties.
+Currently, this website does not use tracking cookies, analytics trackers, or third-party monitoring systems.
+</p>
+
+<h2>4. Third-Party Links</h2>
+<p>
+Our platform may contain links to third-party websites. 
+We are not responsible for their privacy practices and encourage users to review their policies separately.
+</p>
+
+<h2>5. Data Security</h2>
+<p>
+We implement reasonable security practices to safeguard any shared information from unauthorized access.
+</p>
+
+<h2>6. Updates to This Policy</h2>
+<p>
+We may update this Privacy Policy occasionally to reflect changes in platform operations.
+Users are encouraged to review this page periodically.
 </p>
 
 <a href="index.html">Back to Home</a>
+
+</div>
+
+<footer>
+© 2026 Scarrs Blackprint. All rights reserved.
+</footer>
+
 <script>
 fetch("navbar.html")
   .then(response => response.text())
@@ -27,5 +140,6 @@ fetch("navbar.html")
     document.getElementById("navbar").innerHTML = data;
   });
 </script>
+
 </body>
 </html>
