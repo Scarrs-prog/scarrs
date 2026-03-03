@@ -6,6 +6,7 @@
 <title>About | Scarrs Blackprint</title>
 
 <style>
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -15,11 +16,60 @@ body {
   animation: gradientMove 12s ease infinite;
 }
 
+/* Background animation */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Animated Logo */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #22c55e;
+  position: relative;
+  cursor: pointer;
+  animation: glow 2.5s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #22c55e; }
+  to { text-shadow: 0 0 20px #22c55e, 0 0 30px #16a34a; }
+}
+
+/* Single Toggle Button */
+.toggle-btn {
+  background: #22c55e;
+  border: none;
+  padding: 10px 18px;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+}
+
+/* ================= CONTENT ================= */
 
 .container {
   max-width: 950px;
@@ -39,14 +89,15 @@ h1 {
   margin-bottom: 50px;
   padding: 30px;
   background: rgba(255,255,255,0.05);
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  transition: 0.3s ease;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: 0.4s ease;
 }
 
 .section:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 25px rgba(34,197,94,0.3);
 }
 
 h2 {
@@ -69,6 +120,7 @@ p {
   font-weight: 500;
 }
 
+/* CTA */
 .cta {
   text-align: center;
   margin-top: 60px;
@@ -76,29 +128,53 @@ p {
 
 .cta a {
   text-decoration: none;
-  padding: 14px 28px;
-  background: #22c55e;
+  padding: 16px 36px;
+  background: linear-gradient(45deg, #22c55e, #16a34a);
   color: #0f172a;
   font-weight: bold;
-  border-radius: 6px;
-  transition: 0.3s;
+  border-radius: 30px;
+  transition: 0.4s;
 }
 
 .cta a:hover {
-  background: #16a34a;
+  transform: scale(1.08);
+  box-shadow: 0 0 25px #22c55e;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 30px;
   font-size: 14px;
   color: #94a3b8;
 }
+
+/* Light Mode */
+.light-mode {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.light-mode .section {
+  background: rgba(0,0,0,0.05);
+}
+
+.light-mode h1,
+.light-mode h2 {
+  color: #16a34a;
+}
+
 </style>
 </head>
 
 <body>
-<div id="navbar"></div>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">SB</div>
+  <button class="toggle-btn" onclick="toggleMode()">Toggle</button>
+</div>
+
 <div class="container">
 
 <h1>About Scarrs Blackprint</h1>
@@ -115,44 +191,25 @@ No shortcuts. No hype. Just effort-based progress.
 <div class="section">
 <h2>Who This Is For</h2>
 <p>
-This platform is built for students, beginners, and individuals starting from zero.
-If you are ready to train your skills daily and treat online earning like a serious pursuit,
-this space is designed for you.
+Built for students and beginners starting from zero.
+If you are ready to train daily and treat online earning seriously,
+this platform is for you.
 </p>
 </div>
 
 <div class="section">
-<h2>What You Will Find Here</h2>
-<p>
-You will find beginner-friendly earning methods, practical roadmaps, skill-focused guidance,
-and tools that help you grow step by step.
-Everything shared is designed to build ability first — income follows.
-</p>
-</div>
-
-<div class="section">
-<h2>Our Core Values</h2>
+<h2>Core Values</h2>
 <ul class="values-list">
 <li>Discipline — Show up daily.</li>
 <li>Consistency — Small progress compounds.</li>
-<li>Skill Over Luck — Real ability creates income.</li>
+<li>Skill Over Luck — Ability creates income.</li>
 <li>Patience — Sustainable success takes time.</li>
 </ul>
 </div>
 
 <div class="section">
-<h2>Transparency</h2>
+<h2>Vision</h2>
 <p>
-We do not guarantee income. Results depend on effort, learning, and execution.
-Some pages may contain affiliate links, but recommendations are made based on usefulness — not exaggeration.
-Integrity comes first.
-</p>
-</div>
-
-<div class="section">
-<h2>Our Vision</h2>
-<p>
-Our vision is to build a structured earning ecosystem — like a professional training program.
 Learn. Practice. Improve. Scale.
 Online income should be built with strength, not shortcuts.
 </p>
@@ -167,12 +224,12 @@ Online income should be built with strength, not shortcuts.
 <footer>
 © 2026 Scarrs Blackprint. Built with discipline.
 </footer>
+
 <script>
-fetch("navbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("navbar").innerHTML = data;
-  });
+function toggleMode() {
+  document.body.classList.toggle("light-mode");
+}
 </script>
+
 </body>
 </html>
