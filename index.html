@@ -1,11 +1,10 @@
-t<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Scarrs Blackprint | Premium Income Systems</title>
-<meta name="description" content="Scarrs Blackprint is a premium tech platform helping creators build scalable online income systems through structured earning frameworks.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -55,15 +54,6 @@ p{
   color:var(--muted);
 }
 
-/* ================= PARTICLE BG ================= */
-
-canvas{
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:-1;
-}
-
 /* ================= NAVBAR ================= */
 
 nav{
@@ -101,8 +91,14 @@ nav a:hover{
   color:var(--accent2);
 }
 
-.toggle{
+.toggle-btn{
+  padding:8px 16px;
+  border-radius:20px;
+  border:none;
   cursor:pointer;
+  font-weight:600;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:white;
 }
 
 /* ================= HERO ================= */
@@ -110,8 +106,6 @@ nav a:hover{
 .hero{
   text-align:center;
   padding-top:180px;
-  opacity:0;
-  animation:fadeIn 1.5s forwards;
 }
 
 .hero h1{
@@ -138,7 +132,7 @@ nav a:hover{
   box-shadow:0 10px 30px rgba(124,58,237,0.4);
 }
 
-/* ================= GRID / 3D CARDS ================= */
+/* ================= GRID ================= */
 
 .grid{
   display:grid;
@@ -151,81 +145,18 @@ nav a:hover{
   padding:40px;
   border-radius:20px;
   transition:0.4s;
-  transform-style:preserve-3d;
 }
 
 .card:hover{
-  transform:rotateY(10deg) rotateX(5deg);
+  transform:translateY(-10px);
   box-shadow:0 20px 50px rgba(0,0,0,0.4);
 }
-
-/* ================= COUNTERS ================= */
-
-.counter{
-  font-size:2.5rem;
-  margin-top:10px;
-}
-
-/* ================= GROWTH BARS ================= */
-
-.bar{
-  height:8px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  width:0;
-  margin:15px 0;
-  border-radius:10px;
-  animation:grow 2s forwards;
-}
-
-@keyframes grow{
-  from{width:0;}
-}
-
-@keyframes fadeIn{
-  to{opacity:1;}
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.7);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-}
-
-.modal-content{
-  background:var(--card);
-  padding:40px;
-  border-radius:20px;
-  width:300px;
-  text-align:center;
-}
-
-input{
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-  border-radius:10px;
-  border:none;
-  outline:none;
-}
-
-/* ================= BLOG ================= */
 
 .blog{
   background:var(--card);
   padding:30px;
   border-radius:20px;
   margin-bottom:20px;
-  transition:0.3s;
-}
-
-.blog:hover{
-  transform:translateY(-5px);
 }
 
 footer{
@@ -237,11 +168,21 @@ footer{
 </style>
 </head>
 
-
 <body>
 
-<div id="navbar"></div>
-<canvas id="particles"></canvas>
+<!-- NAVBAR -->
+
+<nav>
+  <h2>Scarrs Blackprint</h2>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#systems">Systems</a></li>
+    <li><a href="#blog">Insights</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="toggle-btn" onclick="toggleTheme()">Toggle Mode</button>
+</nav>
+
 
 <!-- HERO -->
 
@@ -254,163 +195,86 @@ For creators & freelancers who want structured, predictable online income — no
 </section>
 
 
-<!-- CORE SYSTEMS (Moved Up) -->
+<!-- CORE SYSTEMS -->
 
 <section id="systems">
-<h2 style="text-align:center;margin-bottom:60px;">
-Our Core Systems
-</h2>
+<h2 style="text-align:center;margin-bottom:60px;">Our Core Systems</h2>
 
 <div class="grid">
 
 <div class="card">
 <h3>Freelance OS</h3>
-<p>
-A structured client acquisition and premium pricing framework for serious freelancers.
-</p>
+<p>A structured client acquisition framework for serious freelancers.</p>
 </div>
 
 <div class="card">
 <h3>Creator Monetization</h3>
-<p>
-Turn attention into revenue using audience positioning & offer design.
-</p>
+<p>Turn attention into revenue using audience positioning & offer design.</p>
 </div>
 
 <div class="card">
 <h3>Digital Asset Engine</h3>
-<p>
-Build once. Sell infinitely. Scale income without trading time.
-</p>
+<p>Build once. Sell infinitely. Scale income without trading time.</p>
 </div>
 
 </div>
 </section>
 
 
-<!-- TRUST SECTION -->
-
-<section>
-<h2 style="text-align:center;margin-bottom:60px;">
-Built With Independent Builders
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>120+ Active Creators</h3>
-<p>
-Freelancers and digital operators implementing structured systems.
-</p>
-</div>
-
-<div class="card">
-<h3>240+ Digital Assets Deployed</h3>
-<p>
-Templates & frameworks generating recurring income.
-</p>
-</div>
-
-<div class="card">
-<h3>85% Execution Improvement</h3>
-<p>
-Measured productivity & income consistency growth.
-</p>
-</div>
-
-</div>
-</section>
-
-
-<!-- CASE STUDY -->
-
-<section>
-<h2 style="text-align:center;margin-bottom:60px;">
-Builder Spotlight
-</h2>
-
-<div class="card" style="max-width:750px;margin:auto;text-align:center;">
-<h3>From ₹35k to ₹1.4L Per Month</h3>
-<p style="margin-top:15px;">
-Through structured client acquisition and digital asset stacking,
-income scaled within 4 months.
-</p>
-<p style="margin-top:20px;font-weight:600;">
-Systems create leverage. Motivation fades.
-</p>
-</div>
-</section>
-
-
-<!-- INSIGHTS (Blog feels more authoritative now) -->
+<!-- BLOG -->
 
 <section id="blog">
-<h2 style="text-align:center;margin-bottom:60px;">
-Insights & Framework Breakdowns
-</h2>
+<h2 style="text-align:center;margin-bottom:60px;">Insights & Framework Breakdowns</h2>
 
 <div class="blog">
 <h3>How to Scale Freelancing in 2026</h3>
-<p style="font-size:14px;margin:10px 0;">
-Category: Freelance Systems
-</p>
-<p>
-Client acquisition psychology, pricing leverage & offer positioning explained.
-</p>
+<p>Client acquisition psychology, pricing leverage & offer positioning explained.</p>
 </div>
 
 <div class="blog">
 <h3>Digital Assets vs Active Income</h3>
-<p style="font-size:14px;margin:10px 0;">
-Category: Monetization Strategy
-</p>
-<p>
-Which model scales faster? A structured comparison with breakdown.
-</p>
+<p>Which model scales faster? A structured comparison.</p>
 </div>
 
 </section>
 
 
-<!-- FINAL CTA -->
+<!-- CTA -->
 
 <section style="text-align:center;">
-<h2 style="margin-bottom:20px;">
-Ready To Build Your Income Architecture?
-</h2>
-
+<h2>Ready To Build Your Income Architecture?</h2>
 <p style="max-width:650px;margin:auto;">
 Stop chasing random tactics. Start building structured systems designed for scale.
 </p>
-
-<a href="earning-guide.html" class="btn" style="margin-top:30px;">
-Start The Framework
-</a>
+<a href="#" class="btn">Start The Framework</a>
 </section>
-
 
 <footer>
 © 2026 Scarrs Blackprint. All rights reserved.
 </footer>
 
 
-<!-- LOGIN MODAL -->
-
-<div class="modal" id="authModal">
-<div class="modal-content">
-<h3>Login</h3>
-<input type="email" placeholder="Email">
-<input type="password" placeholder="Password">
-<button class="btn" onclick="closeModal()">Enter</button>
-</div>
-</div>
+<!-- TOGGLE SCRIPT -->
 
 <script>
-fetch("navbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("navbar").innerHTML = data;
-  });
+
+function toggleTheme() {
+  document.body.classList.toggle("light");
+
+  if (document.body.classList.contains("light")) {
+    localStorage.setItem("theme", "light");
+  } else {
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light");
+  }
+});
+
 </script>
 
 </body>
