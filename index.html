@@ -237,85 +237,164 @@ footer{
 </style>
 </head>
 
+
 <body>
- <div id="navbar"></div>
+
 <div id="navbar"></div>
 <canvas id="particles"></canvas>
-<nav>
-  <h2>Scarrs Blackprint</h2>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="earning.html">Earning</a></li>
-    <li><a href="earning-guide.html">Guide</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="privacy.html">Privacy</a></li>
-    <li><a href="disclaimer.html">Disclaimer</a></li>
-    <li><a href="login.html">Login</a></li>
-  </ul>
-</nav>
 
-
+<!-- HERO -->
 
 <section class="hero">
-<h1>Architect Your Income System</h1>
-<p>Premium structured frameworks for creators & freelancers to scale online income.</p>
-<a href="#systems" class="btn">Explore Systems</a>
+<h1>Architect Scalable Income Systems</h1>
+<p>
+For creators & freelancers who want structured, predictable online income — not random hustle.
+</p>
+<a href="#systems" class="btn">Explore Frameworks</a>
 </section>
 
+
+<!-- CORE SYSTEMS (Moved Up) -->
+
 <section id="systems">
-<h2 style="text-align:center;margin-bottom:60px;">Core Systems</h2>
+<h2 style="text-align:center;margin-bottom:60px;">
+Our Core Systems
+</h2>
+
 <div class="grid">
+
 <div class="card">
 <h3>Freelance OS</h3>
-<p>Client acquisition & scaling frameworks.</p>
-<div class="counter" data-target="120">0</div>
-<p>Active Builders</p>
+<p>
+A structured client acquisition and premium pricing framework for serious freelancers.
+</p>
 </div>
 
 <div class="card">
 <h3>Creator Monetization</h3>
-<p>Audience to revenue systems.</p>
-<div class="counter" data-target="85">0</div>
-<p>Growth Rate %</p>
+<p>
+Turn attention into revenue using audience positioning & offer design.
+</p>
 </div>
 
 <div class="card">
 <h3>Digital Asset Engine</h3>
-<p>Create once. Sell infinitely.</p>
-<div class="counter" data-target="240">0</div>
-<p>Templates Sold</p>
+<p>
+Build once. Sell infinitely. Scale income without trading time.
+</p>
 </div>
+
 </div>
 </section>
 
-<section id="growth">
-<h2 style="text-align:center;margin-bottom:60px;">Growth Projection</h2>
-<div class="bar" style="width:60%;animation-delay:0s;"></div>
-<div class="bar" style="width:80%;animation-delay:0.4s;"></div>
-<div class="bar" style="width:95%;animation-delay:0.8s;"></div>
+
+<!-- TRUST SECTION -->
+
+<section>
+<h2 style="text-align:center;margin-bottom:60px;">
+Built With Independent Builders
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>120+ Active Creators</h3>
+<p>
+Freelancers and digital operators implementing structured systems.
+</p>
+</div>
+
+<div class="card">
+<h3>240+ Digital Assets Deployed</h3>
+<p>
+Templates & frameworks generating recurring income.
+</p>
+</div>
+
+<div class="card">
+<h3>85% Execution Improvement</h3>
+<p>
+Measured productivity & income consistency growth.
+</p>
+</div>
+
+</div>
 </section>
+
+
+<!-- CASE STUDY -->
+
+<section>
+<h2 style="text-align:center;margin-bottom:60px;">
+Builder Spotlight
+</h2>
+
+<div class="card" style="max-width:750px;margin:auto;text-align:center;">
+<h3>From ₹35k to ₹1.4L Per Month</h3>
+<p style="margin-top:15px;">
+Through structured client acquisition and digital asset stacking,
+income scaled within 4 months.
+</p>
+<p style="margin-top:20px;font-weight:600;">
+Systems create leverage. Motivation fades.
+</p>
+</div>
+</section>
+
+
+<!-- INSIGHTS (Blog feels more authoritative now) -->
 
 <section id="blog">
-<h2 style="text-align:center;margin-bottom:60px;">Latest Insights</h2>
+<h2 style="text-align:center;margin-bottom:60px;">
+Insights & Framework Breakdowns
+</h2>
 
 <div class="blog">
 <h3>How to Scale Freelancing in 2026</h3>
-<p>Structured client acquisition frameworks and premium pricing psychology.</p>
+<p style="font-size:14px;margin:10px 0;">
+Category: Freelance Systems
+</p>
+<p>
+Client acquisition psychology, pricing leverage & offer positioning explained.
+</p>
 </div>
 
 <div class="blog">
 <h3>Digital Assets vs Active Income</h3>
-<p>Which model scales faster? Complete breakdown.</p>
+<p style="font-size:14px;margin:10px 0;">
+Category: Monetization Strategy
+</p>
+<p>
+Which model scales faster? A structured comparison with breakdown.
+</p>
 </div>
 
 </section>
+
+
+<!-- FINAL CTA -->
+
+<section style="text-align:center;">
+<h2 style="margin-bottom:20px;">
+Ready To Build Your Income Architecture?
+</h2>
+
+<p style="max-width:650px;margin:auto;">
+Stop chasing random tactics. Start building structured systems designed for scale.
+</p>
+
+<a href="earning-guide.html" class="btn" style="margin-top:30px;">
+Start The Framework
+</a>
+</section>
+
 
 <footer>
 © 2026 Scarrs Blackprint. All rights reserved.
 </footer>
 
-<!-- MODAL -->
+
+<!-- LOGIN MODAL -->
 
 <div class="modal" id="authModal">
 <div class="modal-content">
@@ -327,80 +406,12 @@ footer{
 </div>
 
 <script>
-
-/* THEME */
-function toggleTheme(){
-document.body.classList.toggle("light");
-}
-
-/* MODAL */
-function openModal(){
-document.getElementById("authModal").style.display="flex";
-}
-function closeModal(){
-document.getElementById("authModal").style.display="none";
-}
-
-/* COUNTERS */
-const counters=document.querySelectorAll('.counter');
-counters.forEach(counter=>{
-const update=()=>{
-const target=+counter.getAttribute('data-target');
-const count=+counter.innerText;
-const inc=target/100;
-if(count<target){
-counter.innerText=Math.ceil(count+inc);
-setTimeout(update,20);
-}else{
-counter.innerText=target;
-}
-};
-update();
-});
-
-/* PARTICLES */
-const canvas=document.getElementById("particles");
-const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-let particles=[];
-for(let i=0;i<60;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2,
-dx:(Math.random()-0.5),
-dy:(Math.random()-0.5)
-});
-}
-function animate(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-particles.forEach(p=>{
-p.x+=p.dx;
-p.y+=p.dy;
-ctx.beginPath();
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fillStyle="#7c3aed";
-ctx.fill();
-});
-requestAnimationFrame(animate);
-}
-animate();
-
-</script>
-<script>
 fetch("navbar.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("navbar").innerHTML = data;
   });
 </script>
- <script>
-fetch("navbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("navbar").innerHTML = data;
-  });
-</script>
+
 </body>
 </html>
