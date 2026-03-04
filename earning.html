@@ -178,6 +178,12 @@ button{
   background:var(--accent);
   color:white;
   cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  opacity:0.9;
+  transform:translateY(-2px);
 }
 
 /* CTA */
@@ -188,19 +194,32 @@ button{
   text-align:center;
 }
 
+.cta a{
+  text-decoration:none;
+}
+
+.cta button{
+  background:white;
+  color:var(--accent);
+  font-weight:600;
+  margin-top:20px;
+}
+
+.cta button:hover{
+  background:#f0f4ff;
+}
+
 footer{
   padding:40px;
   text-align:center;
   font-size:14px;
   opacity:0.6;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- BACK BUTTON -->
 <a href="javascript:history.back()" class="back-btn">← Back</a>
 
 <nav>
@@ -249,18 +268,6 @@ footer{
 </section>
 
 <section>
-  <h2>Success Stories</h2>
-  <div class="testimonial">
-    "I landed my first freelance project in 6 weeks."  
-    <br><strong>– Beginner Designer</strong>
-  </div>
-  <div class="testimonial">
-    "Internship helped me gain real experience."  
-    <br><strong>– College Student</strong>
-  </div>
-</section>
-
-<section>
   <h2>Find Your Skill Path</h2>
   <select id="skillSelect">
     <option value="">Select Your Interest</option>
@@ -293,14 +300,13 @@ footer{
   </div>
 </section>
 
-<section>
-  <h2>Get Free Roadmap Updates</h2>
-  <input type="email" placeholder="Enter your email">
-  <button onclick="alert('Subscribed!')">Subscribe</button>
-</section>
-
 <div class="cta">
   <h2>Start Small. Build Smart. Grow Consistently.</h2>
+  <p>Ready to upgrade your skills?</p>
+
+  <a href="scarrs-lab.html">
+    <button>Enter Scarrs Skill Lab</button>
+  </a>
 </div>
 
 <footer>
@@ -309,13 +315,11 @@ footer{
 
 <script>
 const stats=document.querySelectorAll(".stat");
-
 stats.forEach(stat=>{
   const update=()=>{
     const target=+stat.getAttribute("data-target");
     const current=+stat.innerText;
     const increment=target/100;
-
     if(current<target){
       stat.innerText=Math.ceil(current+increment);
       setTimeout(update,20);
@@ -329,7 +333,6 @@ stats.forEach(stat=>{
 document.getElementById("skillSelect").addEventListener("change",function(){
   const val=this.value;
   const result=document.getElementById("skillResult");
-
   if(val==="writing"){
     result.innerText="Start with blog writing or copywriting.";
   }
