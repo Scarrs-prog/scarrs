@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | Scarrs Blackprint</title>
+<title>Contact Department | Scarrs Blackprint</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --bg:#0b0f19;
   --card:#121826;
@@ -29,33 +30,98 @@ body{
   color:var(--text);
 }
 
-/* Container */
-.container{
-  max-width:900px;
-  margin:140px auto 80px auto;
-  padding:40px;
-  background:var(--card);
-  border-radius:20px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+/* ================= BACK BUTTON ================= */
+
+.back-btn{
+  position:fixed;
+  top:25px;
+  left:30px;
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:25px;
+  font-size:14px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:white;
+  font-weight:600;
+  transition:0.3s;
 }
 
-h1{
-  font-size:2.5rem;
-  margin-bottom:20px;
+.back-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(124,58,237,0.4);
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  text-align:center;
+  padding:140px 8% 60px 8%;
+}
+
+.header h1{
+  font-size:2.8rem;
+  margin-bottom:15px;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-p{
+.header p{
   color:var(--muted);
-  margin-bottom:20px;
+  max-width:600px;
+  margin:auto;
   line-height:1.6;
 }
 
-/* Form Styling */
-form{
-  margin-top:30px;
+/* ================= MAIN CONTAINER ================= */
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:40px 8% 80px 8%;
+}
+
+/* ================= DEPARTMENT GRID ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-bottom:60px;
+}
+
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:20px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* ================= FORM ================= */
+
+.form-section{
+  background:var(--card);
+  padding:40px;
+  border-radius:20px;
+}
+
+.form-section h2{
+  margin-bottom:20px;
 }
 
 input, textarea{
@@ -91,45 +157,86 @@ button:hover{
   box-shadow:0 10px 30px rgba(124,58,237,0.4);
 }
 
-.contact-info{
-  margin-top:40px;
-  padding:20px;
-  background:#0f172a;
-  border-radius:15px;
-}
+/* ================= FOOTER ================= */
 
 footer{
   text-align:center;
-  padding:30px;
+  padding:40px;
   color:var(--muted);
 }
+
 </style>
 </head>
 
 <body>
 
-<div id="navbar"></div>
+<!-- BACK BUTTON -->
+<a href="index.html" class="back-btn">← Back</a>
+
+<!-- HEADER -->
+<section class="header">
+  <h1>Contact Department</h1>
+  <p>
+    Need support, business inquiries, or general information about Scarrs Blackprint?
+    Our departments are structured to respond efficiently.
+  </p>
+</section>
 
 <div class="container">
 
-<h1>Contact Us</h1>
+  <!-- DEPARTMENTS -->
 
-<p>
-Have questions, feedback, or collaboration ideas?  
-We’d love to hear from you. Reach out and our team will respond as soon as possible.
-</p>
+  <div class="grid">
 
-<form onsubmit="showMessage(event)">
-  <input type="text" placeholder="Your Name" required>
-  <input type="email" placeholder="Your Email" required>
-  <textarea placeholder="Your Message" required></textarea>
-  <button type="submit">Send Message</button>
-</form>
+    <div class="card">
+      <h3>General Support</h3>
+      <p>
+        Questions about the platform, navigation, or access?
+        Reach out for guidance and clarification.
+      </p>
+    </div>
 
-<div class="contact-info">
-  <p><strong>Email:</strong> raigiboy788@gmail.com</p>
-  <p>We aim to respond within 24–48 hours.</p>
-</div>
+    <div class="card">
+      <h3>Business & Partnerships</h3>
+      <p>
+        Collaboration proposals, brand partnerships, or system integration discussions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Technical Assistance</h3>
+      <p>
+        Experiencing technical issues or bugs?
+        Provide detailed information so we can resolve it quickly.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Media & Press</h3>
+      <p>
+        Interviews, public mentions, or media inquiries related to our income frameworks.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- CONTACT FORM -->
+
+  <div class="form-section">
+    <h2>Send a Direct Message</h2>
+
+    <form onsubmit="showMessage(event)">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="Write your message clearly and professionally..." required></textarea>
+      <button type="submit">Submit Inquiry</button>
+    </form>
+
+    <p style="margin-top:20px;color:var(--muted);font-size:14px;">
+      Official Email: <strong>raigiboy788@gmail.com</strong><br>
+      Expected response time: 24–48 hours.
+    </p>
+  </div>
 
 </div>
 
@@ -138,15 +245,9 @@ We’d love to hear from you. Reach out and our team will respond as soon as pos
 </footer>
 
 <script>
-fetch("navbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("navbar").innerHTML = data;
-  });
-
 function showMessage(e){
   e.preventDefault();
-  alert("Thank you! Your message has been received.");
+  alert("Your inquiry has been successfully submitted. Our department will respond within 24–48 hours.");
 }
 </script>
 
