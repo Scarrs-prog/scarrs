@@ -48,7 +48,6 @@ nav a{
   text-decoration:none;
   color:var(--text);
   font-weight:600;
-  cursor:pointer;
 }
 
 nav a:hover{
@@ -130,7 +129,6 @@ textarea{
   border-radius:8px;
 }
 
-/* Buttons */
 button{
   padding:10px 18px;
   border:none;
@@ -166,10 +164,11 @@ footer{
 <body>
 
 <nav>
-  <h2>Scarrs Skill Lab</h2>
+  <h2>Scarrs Blackprint</h2>
   <ul>
-    <li><a onclick="showSection('home')">Home</a></li>
-    <li><a onclick="showSection('lesson1')">Lessons</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="earning.html">Earning</a></li>
+    <li><a href="scarrs-lab.html">Skill Lab</a></li>
   </ul>
 
   <div class="progress-container">
@@ -193,7 +192,7 @@ footer{
   <div class="lesson-box">
     <button class="back-btn" onclick="showSection('home')">⬅ Back</button>
     <h2>Lesson 1: What is HTML?</h2>
-    <p>HTML is the structure of a website. It defines headings, text, images and layout.</p>
+    <p>HTML structures a website using tags.</p>
 
     <textarea id="codeInput"><h1>Hello World</h1></textarea>
     <button onclick="runCode()">Run Code</button>
@@ -223,16 +222,11 @@ footer{
     <input type="number" id="projects" placeholder="Projects per month">
     <button onclick="calculateEarnings()">Calculate</button>
     <p id="earningsResult"></p>
-  </div>
-</section>
 
-<!-- EMAIL -->
-<section id="emailSection">
-  <div class="lesson-box">
-    <button class="back-btn" onclick="showSection('calculator')">⬅ Back</button>
-    <h2>Unlock Full Roadmap PDF</h2>
-    <input type="email" placeholder="Enter your email">
-    <button onclick="alert('Roadmap will be sent soon!')">Unlock</button>
+    <br>
+    <a href="earning.html">
+      <button class="back-btn">⬅ Back to Earning Page</button>
+    </a>
   </div>
 </section>
 
@@ -281,8 +275,7 @@ function calculateEarnings(){
   const total=rate*projects;
   document.getElementById("earningsResult").innerText=
   "Estimated Monthly Income: $" + total;
-  updateProgress(20);
-  showSection("emailSection");
+  updateProgress(40);
 }
 </script>
 
