@@ -52,6 +52,7 @@ h1,h2,h3{
 
 p{
   color:var(--muted);
+  line-height:1.6;
 }
 
 /* ================= NAVBAR ================= */
@@ -65,7 +66,7 @@ nav{
   justify-content:space-between;
   align-items:center;
   backdrop-filter:blur(15px);
-  background:rgba(10,15,30,0.6);
+  background:rgba(10,15,30,0.7);
   z-index:1000;
 }
 
@@ -78,12 +79,14 @@ nav h2{
 nav ul{
   display:flex;
   list-style:none;
-  gap:30px;
+  gap:25px;
+  flex-wrap:wrap;
 }
 
 nav a{
   text-decoration:none;
   color:var(--muted);
+  font-size:14px;
   transition:0.3s;
 }
 
@@ -105,11 +108,11 @@ nav a:hover{
 
 .hero{
   text-align:center;
-  padding-top:180px;
+  padding-top:200px;
 }
 
 .hero h1{
-  font-size:3.5rem;
+  font-size:3.2rem;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -159,10 +162,40 @@ nav a:hover{
   margin-bottom:20px;
 }
 
+/* ================= FOOTER ================= */
+
 footer{
-  text-align:center;
-  padding:50px;
+  padding:60px 8%;
+  background:var(--card);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:40px;
+}
+
+.footer-grid h4{
+  margin-bottom:15px;
+}
+
+.footer-grid a{
+  display:block;
+  text-decoration:none;
   color:var(--muted);
+  margin-bottom:8px;
+  font-size:14px;
+}
+
+.footer-grid a:hover{
+  color:var(--accent2);
+}
+
+.copyright{
+  text-align:center;
+  margin-top:40px;
+  color:var(--muted);
+  font-size:14px;
 }
 
 </style>
@@ -174,15 +207,20 @@ footer{
 
 <nav>
   <h2>Scarrs Blackprint</h2>
+
   <ul>
     <li><a href="#">Home</a></li>
     <li><a href="#systems">Systems</a></li>
     <li><a href="#blog">Insights</a></li>
+    <li><a href="earning.html">Earning</a></li>
+    <li><a href="earning-guide.html">Earning Guide</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="disclaimer.html">Disclaimer</a></li>
   </ul>
-  <button class="toggle-btn" onclick="toggleTheme()">Toggle Mode</button>
-</nav>
 
+  <button class="toggle-btn" onclick="toggleTheme()">Toggle</button>
+</nav>
 
 <!-- HERO -->
 
@@ -193,7 +231,6 @@ For creators & freelancers who want structured, predictable online income — no
 </p>
 <a href="#systems" class="btn">Explore Frameworks</a>
 </section>
-
 
 <!-- CORE SYSTEMS -->
 
@@ -220,7 +257,6 @@ For creators & freelancers who want structured, predictable online income — no
 </div>
 </section>
 
-
 <!-- BLOG -->
 
 <section id="blog">
@@ -238,7 +274,6 @@ For creators & freelancers who want structured, predictable online income — no
 
 </section>
 
-
 <!-- CTA -->
 
 <section style="text-align:center;">
@@ -246,13 +281,39 @@ For creators & freelancers who want structured, predictable online income — no
 <p style="max-width:650px;margin:auto;">
 Stop chasing random tactics. Start building structured systems designed for scale.
 </p>
-<a href="#" class="btn">Start The Framework</a>
+<a href="earning-guide.html" class="btn">Start The Framework</a>
 </section>
 
-<footer>
-© 2026 Scarrs Blackprint. All rights reserved.
-</footer>
+<!-- FOOTER -->
 
+<footer>
+<div class="footer-grid">
+
+<div>
+<h4>Platform</h4>
+<a href="earning.html">Earning</a>
+<a href="earning-guide.html">Earning Guide</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<div>
+<h4>Legal</h4>
+<a href="privacy.html">Privacy Policy</a>
+<a href="disclaimer.html">Disclaimer</a>
+</div>
+
+<div>
+<h4>Company</h4>
+<a href="#">About</a>
+<a href="#">Mission</a>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Scarrs Blackprint. All rights reserved.
+</div>
+</footer>
 
 <!-- TOGGLE SCRIPT -->
 
