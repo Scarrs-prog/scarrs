@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scarrs Skill Lab</title>
+<title>Scarrs Skill Lab </title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -15,7 +15,6 @@
 --card:#1e293b;
 --accent:#6366f1;
 --text:#f1f5f9;
---muted:#94a3b8;
 }
 
 *{
@@ -41,6 +40,7 @@ nav a{
 color:white;
 text-decoration:none;
 margin-left:20px;
+cursor:pointer;
 }
 
 section{
@@ -57,19 +57,19 @@ margin-bottom:25px;
 button{
 background:var(--accent);
 border:none;
-padding:12px 22px;
-border-radius:30px;
+padding:10px 18px;
+border-radius:20px;
 color:white;
 cursor:pointer;
 margin-top:10px;
 }
 
-input{
+input,textarea{
 width:100%;
-padding:12px;
+padding:10px;
+margin-top:10px;
 border-radius:8px;
 border:none;
-margin-top:10px;
 }
 
 .progress{
@@ -81,8 +81,8 @@ margin-top:10px;
 
 .bar{
 height:10px;
-width:0%;
 background:var(--accent);
+width:0%;
 border-radius:20px;
 }
 
@@ -95,7 +95,7 @@ gap:20px;
 .course{
 background:#020617;
 padding:20px;
-border-radius:14px;
+border-radius:12px;
 cursor:pointer;
 }
 
@@ -107,11 +107,11 @@ border-radius:10px;
 margin-top:10px;
 }
 
-textarea{
-width:100%;
-padding:10px;
+.market-item{
+background:#020617;
+padding:15px;
+border-radius:10px;
 margin-top:10px;
-border-radius:8px;
 }
 
 </style>
@@ -121,21 +121,21 @@ border-radius:8px;
 
 <nav>
 <h2>Scarrs Skill Lab</h2>
-<div>
-<a href="#">Home</a>
-<a href="#">Skill Lab</a>
-</div>
-</nav>
 
+<div>
+<a onclick="show('dashboard')">Dashboard</a>
+<a onclick="show('market')">Marketplace</a>
+</div>
+
+</nav>
 
 <!-- LOGIN -->
 
 <section id="loginBox" class="card">
 <h2>Login</h2>
-<input id="nameInput" placeholder="Enter your name">
-<button onclick="login()">Enter Skill Lab</button>
+<input id="nameInput" placeholder="Enter name">
+<button onclick="login()">Enter</button>
 </section>
-
 
 <!-- DASHBOARD -->
 
@@ -144,22 +144,23 @@ border-radius:8px;
 <div class="card">
 <h2>Welcome <span id="user"></span></h2>
 
-<p>Level <span id="level"></span></p>
-<p>XP <span id="xp"></span>/100</p>
+<p>Level: <span id="level"></span></p>
+<p>XP: <span id="xp"></span>/100</p>
 
 <div class="progress">
 <div class="bar" id="xpBar"></div>
 </div>
 
-<p>🔥 Streak: <span id="streak"></span> days</p>
+<p>🔥 Streak: <span id="streak"></span></p>
+<p>💰 Wallet: $<span id="wallet"></span></p>
 
 </div>
 
-
-<!-- SKILL TREE -->
+<!-- SKILLS -->
 
 <div class="card">
-<h2>Skill Tree</h2>
+
+<h2>Skill Courses</h2>
 
 <div class="grid">
 
@@ -183,27 +184,15 @@ border-radius:8px;
 
 </div>
 
-
-<!-- LEADERBOARD -->
-
-<div class="card">
-<h2>Leaderboard</h2>
-
-<ol id="leaderboard">
-</ol>
-
-</div>
-
-
-<!-- AI MENTOR -->
+<!-- AI TEACHER -->
 
 <div class="card">
 
-<h2>AI Mentor</h2>
+<h2>AI Teacher</h2>
 
-<textarea id="aiPrompt" placeholder="Ask mentor a learning question..."></textarea>
+<textarea id="aiPrompt" placeholder="Ask learning question"></textarea>
 
-<button onclick="aiMentor()">Ask Mentor</button>
+<button onclick="aiTeacher()">Ask</button>
 
 <p id="aiResponse"></p>
 
@@ -211,9 +200,7 @@ border-radius:8px;
 
 </section>
 
-
-
-<!-- COURSE AREA -->
+<!-- COURSE -->
 
 <section id="courseArea" class="hidden">
 
@@ -225,19 +212,15 @@ border-radius:8px;
 
 <p id="lessonText"></p>
 
-<textarea placeholder="Practice task here"></textarea>
-
 <button onclick="completeLesson()">Complete Lesson (+20 XP)</button>
 
-<button onclick="quiz()">Take Quiz</button>
+<button onclick="quiz()">Quiz</button>
 
-<button onclick="back()">Back</button>
+<button onclick="show('dashboard')">Back</button>
 
 </div>
 
 </section>
-
-
 
 <!-- QUIZ -->
 
@@ -249,39 +232,42 @@ border-radius:8px;
 
 <p id="quizQ"></p>
 
-<div id="quizOptions"></div>
+<div id="quizOps"></div>
 
 </div>
 
 </section>
 
+<!-- MARKETPLACE -->
 
-
-<!-- CERTIFICATE -->
-
-<section id="certArea" class="hidden">
+<section id="market" class="hidden">
 
 <div class="card">
 
-<h2>🎉 Course Completed</h2>
+<h2>Skill Marketplace</h2>
 
-<button onclick="downloadCert()">Download Certificate</button>
+<input id="skillName" placeholder="Skill name">
+<input id="skillPrice" placeholder="Price">
 
-<button onclick="back()">Back</button>
+<button onclick="addSkill()">List Skill</button>
+
+<div id="marketList"></div>
 
 </div>
 
 </section>
-
 
 <script>
 
 /* USER DATA */
 
-let user = localStorage.getItem("user")
-let xp = parseInt(localStorage.getItem("xp")) || 0
-let level = parseInt(localStorage.getItem("level")) || 1
-let streak = parseInt(localStorage.getItem("streak")) || 0
+let user=localStorage.getItem("user")
+let xp=parseInt(localStorage.getItem("xp"))||0
+let level=parseInt(localStorage.getItem("level"))||1
+let streak=parseInt(localStorage.getItem("streak"))||0
+let wallet=parseInt(localStorage.getItem("wallet"))||50
+
+let market=JSON.parse(localStorage.getItem("market"))||[]
 
 /* LOGIN */
 
@@ -308,48 +294,53 @@ document.getElementById("user").innerText=user
 document.getElementById("xp").innerText=xp
 document.getElementById("level").innerText=level
 document.getElementById("streak").innerText=streak
+document.getElementById("wallet").innerText=wallet
 
 document.getElementById("xpBar").style.width=xp+"%"
 
-updateLeaderboard()
+}
+
+/* NAVIGATION */
+
+function show(id){
+
+document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"))
+
+document.getElementById(id).classList.remove("hidden")
+
+renderMarket()
 
 }
 
 /* COURSES */
 
 const courses={
+
 design:{
 video:"https://www.w3schools.com/html/mov_bbb.mp4",
-text:"Lesson: Design hierarchy and spacing"
+text:"Learn layout, spacing and UI hierarchy."
 },
 
 writing:{
-video:"https://www.w3schools.com/html/mov_bbb.mp4",
-text:"Lesson: Writing powerful hooks"
+video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+text:"Learn persuasive writing and hooks."
 },
 
 marketing:{
-video:"https://www.w3schools.com/html/mov_bbb.mp4",
-text:"Lesson: Viral marketing basics"
+video:"https://www.w3schools.com/html/movie.mp4",
+text:"Learn viral marketing and audience psychology."
 },
 
 ai:{
-video:"https://www.w3schools.com/html/mov_bbb.mp4",
-text:"Lesson: AI prompt engineering"
+video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4",
+text:"Learn prompt engineering and AI tools."
 }
+
 }
-
-
-let currentCourse=""
-
-/* OPEN COURSE */
 
 function openCourse(name){
 
-currentCourse=name
-
-document.getElementById("dashboard").classList.add("hidden")
-document.getElementById("courseArea").classList.remove("hidden")
+show("courseArea")
 
 document.getElementById("courseTitle").innerText=name.toUpperCase()
 
@@ -358,7 +349,6 @@ document.getElementById("lessonVideo").src=courses[name].video
 document.getElementById("lessonText").innerText=courses[name].text
 
 }
-
 
 /* COMPLETE LESSON */
 
@@ -373,28 +363,25 @@ xp=0
 
 }
 
-localStorage.setItem("xp",xp)
-localStorage.setItem("level",level)
-
 streak++
 
+localStorage.setItem("xp",xp)
+localStorage.setItem("level",level)
 localStorage.setItem("streak",streak)
 
 updateDashboard()
 
-alert("Lesson Completed")
+alert("Lesson completed")
 
 }
-
 
 /* QUIZ */
 
 function quiz(){
 
-document.getElementById("courseArea").classList.add("hidden")
-document.getElementById("quizArea").classList.remove("hidden")
+show("quizArea")
 
-document.getElementById("quizQ").innerText="What improves UI?"
+document.getElementById("quizQ").innerText="Good UI requires?"
 
 let ops=["Random spacing","Clear hierarchy","Too many colors"]
 
@@ -406,83 +393,109 @@ html+=`<p onclick="answer(${i})">${o}</p>`
 
 })
 
-document.getElementById("quizOptions").innerHTML=html
+document.getElementById("quizOps").innerHTML=html
 
 }
-
 
 function answer(i){
 
 if(i==1){
 
 xp+=30
+wallet+=5
 
-alert("Correct +30 XP")
-
-}
-
-back()
+alert("Correct! +30 XP + $5")
 
 }
 
+show("dashboard")
 
-/* CERTIFICATE */
-
-function downloadCert(){
-
-let text="Certificate of Completion\n\nAwarded to "+user+"\nScarrs Skill Lab"
-
-let blob=new Blob([text])
-
-let a=document.createElement("a")
-
-a.href=URL.createObjectURL(blob)
-
-a.download="certificate.txt"
-
-a.click()
+updateDashboard()
 
 }
 
+/* AI TEACHER */
 
-/* AI MENTOR */
+function aiTeacher(){
 
-function aiMentor(){
+let q=document.getElementById("aiPrompt").value.toLowerCase()
 
-let q=document.getElementById("aiPrompt").value
+let res="Practice daily and build real projects."
 
-let answer="Mentor Tip: Practice daily and build real projects."
+if(q.includes("design")) res="Study spacing, typography and UI hierarchy."
 
-document.getElementById("aiResponse").innerText=answer
+if(q.includes("marketing")) res="Focus on audience psychology."
 
-}
+if(q.includes("ai")) res="Learn prompt engineering."
 
-
-/* LEADERBOARD */
-
-function updateLeaderboard(){
-
-let board=document.getElementById("leaderboard")
-
-board.innerHTML=`<li>${user} - Level ${level}</li>
-<li>GuestUser - Level 2</li>
-<li>DemoUser - Level 1</li>`
+document.getElementById("aiResponse").innerText=res
 
 }
 
+/* MARKETPLACE */
 
-/* BACK */
+function addSkill(){
 
-function back(){
+let name=document.getElementById("skillName").value
+let price=document.getElementById("skillPrice").value
 
-document.getElementById("quizArea").classList.add("hidden")
-document.getElementById("courseArea").classList.add("hidden")
-document.getElementById("certArea").classList.add("hidden")
+market.push({name,price})
 
-document.getElementById("dashboard").classList.remove("hidden")
+localStorage.setItem("market",JSON.stringify(market))
+
+renderMarket()
 
 }
 
+function renderMarket(){
+
+let box=document.getElementById("marketList")
+
+box.innerHTML=""
+
+market.forEach((m,i)=>{
+
+box.innerHTML+=`
+
+<div class="market-item">
+
+<b>${m.name}</b> - $${m.price}
+
+<button onclick="buy(${i})">Buy</button>
+
+</div>
+
+`
+
+})
+
+}
+
+function buy(i){
+
+let price=market[i].price
+
+if(wallet>=price){
+
+wallet-=price
+
+alert("Purchased skill!")
+
+}
+
+else{
+
+alert("Not enough money")
+
+}
+
+localStorage.setItem("wallet",wallet)
+
+updateDashboard()
+
+}
+
+/* INIT */
 
 if(user){
 
@@ -493,4 +506,4 @@ updateDashboard()
 </script>
 
 </body>
-</html>
+  </html>
