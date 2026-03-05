@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scarrs Skill Lab </title>
+<title>Scarrs Skill Lab</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -114,37 +114,54 @@ border-radius:10px;
 margin-top:10px;
 }
 
+.job{
+background:#020617;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
+}
+
 </style>
 </head>
 
 <body>
 
 <nav>
+
 <h2>Scarrs Skill Lab</h2>
 
 <div>
 <a onclick="show('dashboard')">Dashboard</a>
 <a onclick="show('market')">Marketplace</a>
+<a onclick="show('freelance')">Freelance</a>
 </div>
 
 </nav>
 
+
 <!-- LOGIN -->
 
 <section id="loginBox" class="card">
+
 <h2>Login</h2>
+
 <input id="nameInput" placeholder="Enter name">
+
 <button onclick="login()">Enter</button>
+
 </section>
+
 
 <!-- DASHBOARD -->
 
 <section id="dashboard" class="hidden">
 
 <div class="card">
+
 <h2>Welcome <span id="user"></span></h2>
 
 <p>Level: <span id="level"></span></p>
+
 <p>XP: <span id="xp"></span>/100</p>
 
 <div class="progress">
@@ -152,9 +169,11 @@ margin-top:10px;
 </div>
 
 <p>🔥 Streak: <span id="streak"></span></p>
+
 <p>💰 Wallet: $<span id="wallet"></span></p>
 
 </div>
+
 
 <!-- SKILLS -->
 
@@ -164,25 +183,18 @@ margin-top:10px;
 
 <div class="grid">
 
-<div class="course" onclick="openCourse('design')">
-🎨 Design
-</div>
+<div class="course" onclick="openCourse('design')">🎨 Design</div>
 
-<div class="course" onclick="openCourse('writing')">
-✍ Writing
-</div>
+<div class="course" onclick="openCourse('writing')">✍ Writing</div>
 
-<div class="course" onclick="openCourse('marketing')">
-📈 Marketing
-</div>
+<div class="course" onclick="openCourse('marketing')">📈 Marketing</div>
 
-<div class="course" onclick="openCourse('ai')">
-🤖 AI Tools
-</div>
+<div class="course" onclick="openCourse('ai')">🤖 AI Tools</div>
 
 </div>
 
 </div>
+
 
 <!-- AI TEACHER -->
 
@@ -199,6 +211,7 @@ margin-top:10px;
 </div>
 
 </section>
+
 
 <!-- COURSE -->
 
@@ -222,6 +235,7 @@ margin-top:10px;
 
 </section>
 
+
 <!-- QUIZ -->
 
 <section id="quizArea" class="hidden">
@@ -237,6 +251,7 @@ margin-top:10px;
 </div>
 
 </section>
+
 
 <!-- MARKETPLACE -->
 
@@ -257,17 +272,48 @@ margin-top:10px;
 
 </section>
 
+
+<!-- FREELANCE HUB -->
+
+<section id="freelance" class="hidden">
+
+<div class="card">
+
+<h2>Freelance Job Board</h2>
+
+<input id="jobTitle" placeholder="Job title">
+<textarea id="jobDesc" placeholder="Job description"></textarea>
+<input id="jobPay" placeholder="Budget $">
+
+<button onclick="postJob()">Post Job</button>
+
+</div>
+
+<div class="card">
+
+<h2>Available Jobs</h2>
+
+<div id="jobList"></div>
+
+</div>
+
+</section>
+
+
 <script>
 
 /* USER DATA */
 
 let user=localStorage.getItem("user")
+
 let xp=parseInt(localStorage.getItem("xp"))||0
 let level=parseInt(localStorage.getItem("level"))||1
 let streak=parseInt(localStorage.getItem("streak"))||0
 let wallet=parseInt(localStorage.getItem("wallet"))||50
 
 let market=JSON.parse(localStorage.getItem("market"))||[]
+let jobs=JSON.parse(localStorage.getItem("jobs"))||[]
+
 
 /* LOGIN */
 
@@ -280,6 +326,7 @@ localStorage.setItem("user",name)
 updateDashboard()
 
 }
+
 
 /* DASHBOARD */
 
@@ -300,6 +347,7 @@ document.getElementById("xpBar").style.width=xp+"%"
 
 }
 
+
 /* NAVIGATION */
 
 function show(id){
@@ -309,8 +357,10 @@ document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"))
 document.getElementById(id).classList.remove("hidden")
 
 renderMarket()
+renderJobs()
 
 }
+
 
 /* COURSES */
 
@@ -328,27 +378,27 @@ text:"Learn persuasive writing and hooks."
 
 marketing:{
 video:"https://www.w3schools.com/html/movie.mp4",
-text:"Learn viral marketing and audience psychology."
+text:"Learn viral marketing."
 },
 
 ai:{
 video:"https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.mp4",
-text:"Learn prompt engineering and AI tools."
+text:"Learn AI tools and prompts."
 }
 
 }
+
 
 function openCourse(name){
 
 show("courseArea")
 
 document.getElementById("courseTitle").innerText=name.toUpperCase()
-
 document.getElementById("lessonVideo").src=courses[name].video
-
 document.getElementById("lessonText").innerText=courses[name].text
 
 }
+
 
 /* COMPLETE LESSON */
 
@@ -374,6 +424,7 @@ updateDashboard()
 alert("Lesson completed")
 
 }
+
 
 /* QUIZ */
 
@@ -409,10 +460,10 @@ alert("Correct! +30 XP + $5")
 }
 
 show("dashboard")
-
 updateDashboard()
 
 }
+
 
 /* AI TEACHER */
 
@@ -420,17 +471,16 @@ function aiTeacher(){
 
 let q=document.getElementById("aiPrompt").value.toLowerCase()
 
-let res="Practice daily and build real projects."
+let res="Practice daily."
 
-if(q.includes("design")) res="Study spacing, typography and UI hierarchy."
-
+if(q.includes("design")) res="Study spacing and typography."
 if(q.includes("marketing")) res="Focus on audience psychology."
-
-if(q.includes("ai")) res="Learn prompt engineering."
+if(q.includes("ai")) res="Practice prompt engineering."
 
 document.getElementById("aiResponse").innerText=res
 
 }
+
 
 /* MARKETPLACE */
 
@@ -479,7 +529,7 @@ if(wallet>=price){
 
 wallet-=price
 
-alert("Purchased skill!")
+alert("Purchased!")
 
 }
 
@@ -495,6 +545,68 @@ updateDashboard()
 
 }
 
+
+/* FREELANCE JOB BOARD */
+
+function postJob(){
+
+let title=document.getElementById("jobTitle").value
+let desc=document.getElementById("jobDesc").value
+let pay=document.getElementById("jobPay").value
+
+jobs.push({title,desc,pay,client:user})
+
+localStorage.setItem("jobs",JSON.stringify(jobs))
+
+renderJobs()
+
+}
+
+function renderJobs(){
+
+let box=document.getElementById("jobList")
+
+if(!box) return
+
+box.innerHTML=""
+
+jobs.forEach((j,i)=>{
+
+box.innerHTML+=`
+
+<div class="job">
+
+<b>${j.title}</b>
+
+<p>${j.desc}</p>
+
+<p>Budget: $${j.pay}</p>
+
+<p>Client: ${j.client}</p>
+
+<button onclick="applyJob(${i})">Apply</button>
+
+</div>
+
+`
+
+})
+
+}
+
+function applyJob(i){
+
+wallet+=parseInt(jobs[i].pay)
+
+localStorage.setItem("wallet",wallet)
+
+alert("Job completed! Payment received.")
+
+updateDashboard()
+
+}
+
+
 /* INIT */
 
 if(user){
@@ -506,4 +618,4 @@ updateDashboard()
 </script>
 
 </body>
-  </html>
+</html>
