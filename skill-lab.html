@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scarrs Skill Lab | Pro Learning System</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Scarrs Skill Lab</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
---bg:#f8fafc;
---text:#0f172a;
---card:#ffffff;
---accent:#4f46e5;
---muted:#64748b;
---border:#e5e7eb;
+--bg:#0f172a;
+--card:#1e293b;
+--accent:#6366f1;
+--text:#f1f5f9;
+--muted:#94a3b8;
 }
 
 *{
@@ -30,98 +31,89 @@ color:var(--text);
 }
 
 nav{
-position:sticky;
-top:0;
-background:white;
-padding:18px 8%;
 display:flex;
 justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-z-index:1000;
-}
-
-nav ul{
-list-style:none;
-display:flex;
-gap:22px;
+padding:20px 8%;
+background:#020617;
 }
 
 nav a{
+color:white;
 text-decoration:none;
-color:var(--text);
-font-weight:600;
-}
-
-nav a:hover{
-color:var(--accent);
+margin-left:20px;
 }
 
 section{
-padding:80px 8%;
+padding:60px 8%;
 }
 
 .card{
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 15px 30px rgba(0,0,0,0.05);
-margin-bottom:30px;
+background:var(--card);
+padding:30px;
+border-radius:16px;
+margin-bottom:25px;
 }
 
 button{
-padding:12px 25px;
-border:none;
 background:var(--accent);
-color:white;
+border:none;
+padding:12px 22px;
 border-radius:30px;
+color:white;
 cursor:pointer;
-margin-top:15px;
+margin-top:10px;
 }
-
-button:hover{opacity:0.9}
 
 input{
 width:100%;
 padding:12px;
+border-radius:8px;
+border:none;
 margin-top:10px;
-border-radius:10px;
-border:1px solid var(--border);
 }
 
 .progress{
 height:10px;
-background:#e5e7eb;
+background:#334155;
 border-radius:20px;
-margin:15px 0;
+margin-top:10px;
 }
 
-.progress-bar{
+.bar{
 height:10px;
 width:0%;
 background:var(--accent);
 border-radius:20px;
-transition:0.4s;
 }
 
-.locked{
-opacity:0.4;
-pointer-events:none;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
-.quiz-option{
-margin:8px 0;
+.course{
+background:#020617;
+padding:20px;
+border-radius:14px;
 cursor:pointer;
 }
 
-.hidden{display:none;}
+.hidden{display:none}
 
-footer{
-text-align:center;
-padding:40px;
-opacity:0.6;
-border-top:1px solid var(--border);
+video{
+width:100%;
+border-radius:10px;
+margin-top:10px;
 }
+
+textarea{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:8px;
+}
+
 </style>
 </head>
 
@@ -129,216 +121,373 @@ border-top:1px solid var(--border);
 
 <nav>
 <h2>Scarrs Skill Lab</h2>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="earning.html">Earning</a></li>
-<li><a href="skill-lab.html">Skill Lab</a></li>
-</ul>
+<div>
+<a href="#">Home</a>
+<a href="#">Skill Lab</a>
+</div>
 </nav>
 
-<section id="authSection" class="card">
-<h2>Login to Continue</h2>
-<input type="text" id="username" placeholder="Enter your name">
-<button onclick="login()">Login</button>
+
+<!-- LOGIN -->
+
+<section id="loginBox" class="card">
+<h2>Login</h2>
+<input id="nameInput" placeholder="Enter your name">
+<button onclick="login()">Enter Skill Lab</button>
 </section>
+
+
+<!-- DASHBOARD -->
 
 <section id="dashboard" class="hidden">
-<div class="card">
-<h2>Welcome, <span id="userDisplay"></span></h2>
-<p>Level: <span id="level">1</span> | XP: <span id="xp">0</span></p>
-<div class="progress"><div class="progress-bar" id="xpBar"></div></div>
-<button onclick="logout()">Logout</button>
-</div>
 
 <div class="card">
-<h3>Courses</h3>
-<button onclick="startCourse('design')">🎨 Design Basics</button>
-<button onclick="startCourse('writing')">✍️ Writing Basics</button>
-<button id="advancedBtn" class="locked" onclick="startCourse('advanced')">🚀 Advanced Mastery (Locked)</button>
+<h2>Welcome <span id="user"></span></h2>
+
+<p>Level <span id="level"></span></p>
+<p>XP <span id="xp"></span>/100</p>
+
+<div class="progress">
+<div class="bar" id="xpBar"></div>
 </div>
+
+<p>🔥 Streak: <span id="streak"></span> days</p>
+
+</div>
+
+
+<!-- SKILL TREE -->
+
+<div class="card">
+<h2>Skill Tree</h2>
+
+<div class="grid">
+
+<div class="course" onclick="openCourse('design')">
+🎨 Design
+</div>
+
+<div class="course" onclick="openCourse('writing')">
+✍ Writing
+</div>
+
+<div class="course" onclick="openCourse('marketing')">
+📈 Marketing
+</div>
+
+<div class="course" onclick="openCourse('ai')">
+🤖 AI Tools
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LEADERBOARD -->
+
+<div class="card">
+<h2>Leaderboard</h2>
+
+<ol id="leaderboard">
+</ol>
+
+</div>
+
+
+<!-- AI MENTOR -->
+
+<div class="card">
+
+<h2>AI Mentor</h2>
+
+<textarea id="aiPrompt" placeholder="Ask mentor a learning question..."></textarea>
+
+<button onclick="aiMentor()">Ask Mentor</button>
+
+<p id="aiResponse"></p>
+
+</div>
+
 </section>
 
-<section id="lessonArea" class="hidden">
+
+
+<!-- COURSE AREA -->
+
+<section id="courseArea" class="hidden">
+
 <div class="card">
-<h3 id="lessonTitle"></h3>
-<p id="lessonContent"></p>
 
-<textarea id="practiceArea" placeholder="Complete task here..."></textarea>
+<h2 id="courseTitle"></h2>
 
-<button onclick="nextLesson()">Complete Lesson (+20 XP)</button>
-<button onclick="showQuiz()">Take Quiz</button>
-<button onclick="backToDash()">Back</button>
+<video id="lessonVideo" controls></video>
+
+<p id="lessonText"></p>
+
+<textarea placeholder="Practice task here"></textarea>
+
+<button onclick="completeLesson()">Complete Lesson (+20 XP)</button>
+
+<button onclick="quiz()">Take Quiz</button>
+
+<button onclick="back()">Back</button>
+
 </div>
+
 </section>
+
+
+
+<!-- QUIZ -->
 
 <section id="quizArea" class="hidden">
+
 <div class="card">
-<h3>Quiz Time</h3>
-<p id="quizQuestion"></p>
+
+<h2>Quiz</h2>
+
+<p id="quizQ"></p>
+
 <div id="quizOptions"></div>
+
 </div>
+
 </section>
 
-<section id="certificateArea" class="hidden">
+
+
+<!-- CERTIFICATE -->
+
+<section id="certArea" class="hidden">
+
 <div class="card">
-<h2>🎉 Congratulations!</h2>
-<p>You completed the course.</p>
-<button onclick="downloadCertificate()">Download Certificate</button>
-<button onclick="backToDash()">Back to Dashboard</button>
+
+<h2>🎉 Course Completed</h2>
+
+<button onclick="downloadCert()">Download Certificate</button>
+
+<button onclick="back()">Back</button>
+
 </div>
+
 </section>
 
-<footer>
-© 2026 Scarrs Skill Lab – Structured Learning Platform
-</footer>
 
 <script>
 
-let user = localStorage.getItem("scarrsUser");
-let xp = parseInt(localStorage.getItem("xp")) || 0;
-let level = parseInt(localStorage.getItem("level")) || 1;
-let progressData = JSON.parse(localStorage.getItem("progress")) || {};
+/* USER DATA */
 
-let currentCourse="";
-let lessonIndex=0;
+let user = localStorage.getItem("user")
+let xp = parseInt(localStorage.getItem("xp")) || 0
+let level = parseInt(localStorage.getItem("level")) || 1
+let streak = parseInt(localStorage.getItem("streak")) || 0
 
-const courses={
-design:[
-"Lesson 1: Visual Hierarchy & Layout.",
-"Lesson 2: Typography & Spacing.",
-"Lesson 3: UI Structure & Sections."
-],
-writing:[
-"Lesson 1: Psychology of Persuasion.",
-"Lesson 2: Hook Writing.",
-"Lesson 3: Strong Call-To-Action."
-],
-advanced:[
-"Lesson 1: Monetizing Skills.",
-"Lesson 2: Building Personal Brand.",
-"Lesson 3: Scaling Income Systems."
-]
-};
-
-const quiz={
-question:"What creates strong UI structure?",
-options:["Random spacing","Clear sections & hierarchy","Using many colors"],
-answer:1
-};
+/* LOGIN */
 
 function login(){
-let name=document.getElementById("username").value;
-if(name){
-localStorage.setItem("scarrsUser",name);
-localStorage.setItem("xp",xp);
-localStorage.setItem("level",level);
-showDashboard();
+
+let name=document.getElementById("nameInput").value
+
+localStorage.setItem("user",name)
+
+updateDashboard()
+
+}
+
+/* DASHBOARD */
+
+function updateDashboard(){
+
+document.getElementById("loginBox").classList.add("hidden")
+document.getElementById("dashboard").classList.remove("hidden")
+
+user=localStorage.getItem("user")
+
+document.getElementById("user").innerText=user
+document.getElementById("xp").innerText=xp
+document.getElementById("level").innerText=level
+document.getElementById("streak").innerText=streak
+
+document.getElementById("xpBar").style.width=xp+"%"
+
+updateLeaderboard()
+
+}
+
+/* COURSES */
+
+const courses={
+design:{
+video:"https://www.w3schools.com/html/mov_bbb.mp4",
+text:"Lesson: Design hierarchy and spacing"
+},
+
+writing:{
+video:"https://www.w3schools.com/html/mov_bbb.mp4",
+text:"Lesson: Writing powerful hooks"
+},
+
+marketing:{
+video:"https://www.w3schools.com/html/mov_bbb.mp4",
+text:"Lesson: Viral marketing basics"
+},
+
+ai:{
+video:"https://www.w3schools.com/html/mov_bbb.mp4",
+text:"Lesson: AI prompt engineering"
 }
 }
 
-function logout(){
-localStorage.clear();
-location.reload();
+
+let currentCourse=""
+
+/* OPEN COURSE */
+
+function openCourse(name){
+
+currentCourse=name
+
+document.getElementById("dashboard").classList.add("hidden")
+document.getElementById("courseArea").classList.remove("hidden")
+
+document.getElementById("courseTitle").innerText=name.toUpperCase()
+
+document.getElementById("lessonVideo").src=courses[name].video
+
+document.getElementById("lessonText").innerText=courses[name].text
+
 }
 
-function showDashboard(){
-document.getElementById("authSection").classList.add("hidden");
-document.getElementById("dashboard").classList.remove("hidden");
-document.getElementById("userDisplay").innerText=user || localStorage.getItem("scarrsUser");
-updateXP();
 
-if(level>=3){
-document.getElementById("advancedBtn").classList.remove("locked");
-}
-}
+/* COMPLETE LESSON */
 
-function startCourse(course){
-currentCourse=course;
-lessonIndex=progressData[course] || 0;
-document.getElementById("dashboard").classList.add("hidden");
-document.getElementById("lessonArea").classList.remove("hidden");
-loadLesson();
-}
+function completeLesson(){
 
-function loadLesson(){
-document.getElementById("lessonTitle").innerText=currentCourse.toUpperCase();
-document.getElementById("lessonContent").innerText=
-courses[currentCourse][lessonIndex];
-}
+xp+=20
 
-function nextLesson(){
-xp+=20;
-lessonIndex++;
-progressData[currentCourse]=lessonIndex;
-localStorage.setItem("xp",xp);
-localStorage.setItem("progress",JSON.stringify(progressData));
-updateXP();
-
-if(lessonIndex>=courses[currentCourse].length){
-document.getElementById("lessonArea").classList.add("hidden");
-document.getElementById("certificateArea").classList.remove("hidden");
-}
-else{
-loadLesson();
-}
-}
-
-function updateXP(){
 if(xp>=100){
-level++;
-xp=0;
-localStorage.setItem("level",level);
-}
-localStorage.setItem("xp",xp);
-document.getElementById("xp").innerText=xp;
-document.getElementById("level").innerText=level;
-document.getElementById("xpBar").style.width=(xp)+"%";
+
+level++
+xp=0
+
 }
 
-function showQuiz(){
-document.getElementById("lessonArea").classList.add("hidden");
-document.getElementById("quizArea").classList.remove("hidden");
-document.getElementById("quizQuestion").innerText=quiz.question;
+localStorage.setItem("xp",xp)
+localStorage.setItem("level",level)
 
-let options="";
-quiz.options.forEach((opt,i)=>{
-options+=`<div class="quiz-option" onclick="checkAnswer(${i})">${opt}</div>`;
-});
-document.getElementById("quizOptions").innerHTML=options;
+streak++
+
+localStorage.setItem("streak",streak)
+
+updateDashboard()
+
+alert("Lesson Completed")
+
 }
 
-function checkAnswer(i){
-if(i===quiz.answer){
-alert("Correct! +30 XP");
-xp+=30;
-updateXP();
-backToDash();
-}else{
-alert("Wrong Answer");
-backToDash();
-}
+
+/* QUIZ */
+
+function quiz(){
+
+document.getElementById("courseArea").classList.add("hidden")
+document.getElementById("quizArea").classList.remove("hidden")
+
+document.getElementById("quizQ").innerText="What improves UI?"
+
+let ops=["Random spacing","Clear hierarchy","Too many colors"]
+
+let html=""
+
+ops.forEach((o,i)=>{
+
+html+=`<p onclick="answer(${i})">${o}</p>`
+
+})
+
+document.getElementById("quizOptions").innerHTML=html
+
 }
 
-function downloadCertificate(){
-let name=localStorage.getItem("scarrsUser");
-let file=`Certificate of Completion\n\nThis certifies that ${name}\ncompleted Scarrs Skill Lab Course.\n\nSigned: Scarrs`;
 
-let blob=new Blob([file],{type:"text/plain"});
-let a=document.createElement("a");
-a.href=URL.createObjectURL(blob);
-a.download="certificate.txt";
-a.click();
+function answer(i){
+
+if(i==1){
+
+xp+=30
+
+alert("Correct +30 XP")
+
 }
 
-function backToDash(){
-document.getElementById("lessonArea").classList.add("hidden");
-document.getElementById("quizArea").classList.add("hidden");
-document.getElementById("certificateArea").classList.add("hidden");
-document.getElementById("dashboard").classList.remove("hidden");
+back()
+
 }
+
+
+/* CERTIFICATE */
+
+function downloadCert(){
+
+let text="Certificate of Completion\n\nAwarded to "+user+"\nScarrs Skill Lab"
+
+let blob=new Blob([text])
+
+let a=document.createElement("a")
+
+a.href=URL.createObjectURL(blob)
+
+a.download="certificate.txt"
+
+a.click()
+
+}
+
+
+/* AI MENTOR */
+
+function aiMentor(){
+
+let q=document.getElementById("aiPrompt").value
+
+let answer="Mentor Tip: Practice daily and build real projects."
+
+document.getElementById("aiResponse").innerText=answer
+
+}
+
+
+/* LEADERBOARD */
+
+function updateLeaderboard(){
+
+let board=document.getElementById("leaderboard")
+
+board.innerHTML=`<li>${user} - Level ${level}</li>
+<li>GuestUser - Level 2</li>
+<li>DemoUser - Level 1</li>`
+
+}
+
+
+/* BACK */
+
+function back(){
+
+document.getElementById("quizArea").classList.add("hidden")
+document.getElementById("courseArea").classList.add("hidden")
+document.getElementById("certArea").classList.add("hidden")
+
+document.getElementById("dashboard").classList.remove("hidden")
+
+}
+
 
 if(user){
-showDashboard();
+
+updateDashboard()
+
 }
 
 </script>
