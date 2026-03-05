@@ -1,256 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Disclaimer | Scarrs Blackprint</title>
 
-<!-- SEO META -->
-<meta name="description" content="Official Disclaimer of Scarrs Blackprint - Legal, Earnings, and Content Usage Terms.">
-<meta name="keywords" content="Scarrs Blackprint Disclaimer, Earnings Disclaimer, Legal Terms">
-<meta name="author" content="Scarrs Blackprint">
-
-<!-- Schema Markup -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Scarrs Blackprint Disclaimer",
-  "description": "Legal disclaimer and terms for Scarrs Blackprint.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Scarrs Blackprint"
-  }
-}
-</script>
+<meta name="description" content="Official legal disclaimer of Scarrs Blackprint platform">
 
 <style>
 
-/* ========== GLOBAL DARK PREMIUM THEME ========== */
+/* GLOBAL */
 
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #0f0f1b, #121225);
-    color: #fff;
-    overflow-x: hidden;
+body{
+margin:0;
+font-family:Segoe UI, Arial;
+background:linear-gradient(135deg,#0f0f1b,#1a1a2e);
+color:white;
+line-height:1.7;
 }
 
-h1, h2 {
-    font-weight: 600;
+/* SEARCH BAR */
+
+.searchbox{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:none;
+margin-bottom:30px;
+background:#111;
+color:white;
 }
 
-a {
-    text-decoration: none;
-    color: #aaa;
-    position: relative;
+/* PROGRESS BAR */
+
+.progress{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+background:linear-gradient(90deg,#8a2be2,#00ffff);
+width:0%;
+z-index:9999;
 }
 
-a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background: linear-gradient(90deg,#8a2be2,#00ffff);
-    left: 0;
-    bottom: -4px;
-    transition: 0.4s;
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:240px;
+height:100%;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+padding:30px;
+border-right:1px solid rgba(255,255,255,0.1);
 }
 
-a:hover::after {
-    width: 100%;
+.sidebar h2{
+background:linear-gradient(90deg,#8a2be2,#00ffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-/* ========== SIDEBAR ========== */
-
-.sidebar {
-    position: fixed;
-    width: 250px;
-    height: 100vh;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
-    padding: 30px 20px;
-    border-right: 1px solid rgba(255,255,255,0.1);
+.sidebar a{
+display:block;
+margin:16px 0;
+color:#bbb;
+cursor:pointer;
 }
 
-.sidebar h2 {
-    font-size: 20px;
-    margin-bottom: 30px;
-    background: linear-gradient(90deg,#8a2be2,#00ffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.sidebar a.active{
+color:#00ffff;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
+/* CONTENT */
+
+.content{
+margin-left:260px;
+padding:50px;
+max-width:900px;
 }
 
-.sidebar ul li {
-    margin: 20px 0;
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.05);
+border-radius:14px;
+padding:25px;
+margin-bottom:25px;
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.1);
 }
 
-/* ========== MAIN CONTENT ========== */
+/* SUMMARY */
 
-.content {
-    margin-left: 270px;
-    padding: 50px;
-    animation: fadeIn 1.5s ease;
+summary{
+font-size:19px;
+font-weight:bold;
+cursor:pointer;
 }
 
-.glass-card {
-    background: rgba(255,255,255,0.05);
-    padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
+/* SHARE BUTTON */
+
+.share{
+float:right;
+font-size:13px;
+cursor:pointer;
+color:#aaa;
 }
 
-.glass-card:hover {
-    transform: translateY(-5px);
+/* BUTTON */
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:linear-gradient(90deg,#8a2be2,#00ffff);
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
 
-/* ========== EXPANDABLE SECTIONS ========== */
+/* FOOTER */
 
-details {
-    cursor: pointer;
+.footer{
+margin-top:60px;
+color:#aaa;
+font-size:14px;
 }
 
-summary {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* ========== BUTTON ========== */
-
-button {
-    padding: 12px 25px;
-    background: linear-gradient(90deg,#8a2be2,#00ffff);
-    border: none;
-    border-radius: 30px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.4s;
-}
-
-button:hover {
-    box-shadow: 0 0 15px #8a2be2;
-    transform: scale(1.05);
-}
-
-/* ========== SEPARATORS ========== */
-
-.separator {
-    height: 2px;
-    background: linear-gradient(90deg,#8a2be2,#00ffff);
-    margin: 40px 0;
-}
-
-/* ========== FADE IN ANIMATION ========== */
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px);}
-    to { opacity: 1; transform: translateY(0);}
-}
-
-.footer {
-    margin-top: 50px;
-    font-size: 14px;
-    color: #aaa;
+.highlight{
+background:#222;
+padding:3px;
+border-radius:3px;
 }
 
 </style>
+
 </head>
 
 <body>
-<div id="navbar"></div>
+
+<div class="progress" id="progress"></div>
+
 <div class="sidebar">
-    <h2>Scarrs Blackprint</h2>
-    <ul>
-        <li><a href="#general">General</a></li>
-        <li><a href="#earnings">Earnings</a></li>
-        <li><a href="#content">Content</a></li>
-        <li><a href="#liability">Liability</a></li>
-    </ul>
+
+<h2>Scarrs</h2>
+
+<a onclick="go('general')" id="link-general">General</a>
+<a onclick="go('earnings')" id="link-earnings">Earnings</a>
+<a onclick="go('content')" id="link-content">Content</a>
+<a onclick="go('liability')" id="link-liability">Liability</a>
+
 </div>
 
 <div class="content">
 
 <h1>Disclaimer</h1>
-<p>Version: <span id="version">1.0.0</span></p>
+
+<p>Version: 1.0.0</p>
 <p>Last Updated: <span id="date"></span></p>
 
-<div class="separator"></div>
+<input type="text" class="searchbox" placeholder="Search disclaimer..." onkeyup="searchText(this.value)">
 
-<div class="glass-card" id="general">
-<details>
-<summary>General Disclaimer</summary>
-<p>All content provided on Scarrs Blackprint is for informational purposes only.</p>
+<!-- GENERAL -->
+
+<div class="card" id="general">
+
+<details open>
+
+<summary>
+General Disclaimer
+<span class="share" onclick="share('general')">🔗 Share</span>
+</summary>
+
+<p>
+All information provided on <span class="highlight">Scarrs Blackprint</span> is for educational and informational purposes only.
+We strive to keep the information accurate but make no warranties regarding reliability or completeness.
+</p>
+
 </details>
+
 </div>
 
-<div class="glass-card" id="earnings">
+<!-- EARNINGS -->
+
+<div class="card" id="earnings">
+
 <details>
-<summary>Earnings Disclaimer</summary>
-<p>We do not guarantee any specific financial results. Your earnings depend on skills, effort, and market conditions.</p>
+
+<summary>
+Earnings Disclaimer
+<span class="share" onclick="share('earnings')">🔗 Share</span>
+</summary>
+
+<p>
+Scarrs Blackprint does not guarantee financial success.
+Your results depend on effort, market demand, and learning commitment.
+</p>
+
 </details>
+
 </div>
 
-<div class="glass-card" id="content">
+<!-- CONTENT -->
+
+<div class="card" id="content">
+
 <details>
-<summary>Content Usage</summary>
-<p>All materials are protected under intellectual property laws.</p>
+
+<summary>
+Content Usage
+<span class="share" onclick="share('content')">🔗 Share</span>
+</summary>
+
+<p>
+All courses, tutorials, and resources available on the platform are protected under intellectual property laws.
+Unauthorized distribution or reproduction is prohibited.
+</p>
+
 </details>
+
 </div>
 
-<div class="glass-card" id="liability">
+<!-- LIABILITY -->
+
+<div class="card" id="liability">
+
 <details>
-<summary>Limitation of Liability</summary>
-<p>Scarrs Blackprint is not liable for any losses or damages resulting from website usage.</p>
+
+<summary>
+Limitation of Liability
+<span class="share" onclick="share('liability')">🔗 Share</span>
+</summary>
+
+<p>
+Scarrs Blackprint is not responsible for losses, damages, or misuse of the platform.
+Users accept full responsibility when using educational resources.
+</p>
+
 </details>
+
 </div>
 
-<div class="separator"></div>
+<br>
 
-<button onclick="acknowledge()">I Acknowledge</button>
+<label>
+<input type="checkbox" id="agree">
+I agree to the disclaimer
+</label>
+
+<br><br>
+
+<button onclick="accept()">Accept & Continue</button>
 
 <div class="footer">
-© <span id="year"></span> Scarrs Blackprint. All Rights Reserved.
+
+© <span id="year"></span> Scarrs Blackprint
+
 </div>
 
 </div>
 
 <script>
 
-/* Auto Date */
-document.getElementById("date").innerHTML = new Date().toDateString();
-document.getElementById("year").innerHTML = new Date().getFullYear();
+/* DATE */
 
-/* Acknowledge Button */
-function acknowledge(){
-    alert("Thank you for acknowledging the Disclaimer of Scarrs Blackprint.");
+document.getElementById("date").innerHTML=new Date().toDateString()
+document.getElementById("year").innerHTML=new Date().getFullYear()
+
+/* SCROLL NAVIGATION */
+
+function go(id){
+
+let section=document.getElementById(id)
+
+section.scrollIntoView({behavior:"smooth"})
+
+section.querySelector("details").open=true
+
 }
 
-/* Smooth Scroll */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href'))
-        .scrollIntoView({ behavior: 'smooth' });
-    });
-});
+/* SEARCH */
+
+function searchText(input){
+
+input=input.toLowerCase()
+
+document.querySelectorAll(".card").forEach(card=>{
+
+let text=card.innerText.toLowerCase()
+
+card.style.display=text.includes(input) ? "block":"none"
+
+})
+
+}
+
+/* SHARE */
+
+function share(id){
+
+let url=window.location.origin+window.location.pathname+"#"+id
+
+navigator.clipboard.writeText(url)
+
+alert("Section link copied!")
+
+}
+
+/* ACCEPT */
+
+function accept(){
+
+if(!document.getElementById("agree").checked){
+
+alert("Please accept disclaimer")
+
+return
+
+}
+
+localStorage.setItem("scarrsDisclaimer","accepted")
+
+alert("Disclaimer accepted")
+
+}
+
+/* SCROLL PROGRESS */
+
+window.onscroll=function(){
+
+let winScroll=document.body.scrollTop||document.documentElement.scrollTop
+
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight
+
+let scrolled=(winScroll/height)*100
+
+document.getElementById("progress").style.width=scrolled+"%"
+
+}
+
+/* ACTIVE SIDEBAR */
+
+window.addEventListener("scroll",()=>{
+
+let sections=["general","earnings","content","liability"]
+
+sections.forEach(id=>{
+
+let rect=document.getElementById(id).getBoundingClientRect()
+
+let link=document.getElementById("link-"+id)
+
+if(rect.top<200 && rect.bottom>200){
+
+link.classList.add("active")
+
+}else{
+
+link.classList.remove("active")
+
+}
+
+})
+
+})
 
 </script>
-<script>
-fetch("navbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("navbar").innerHTML = data;
-  });
-</script>
+
 </body>
-  </html>
+</html>
