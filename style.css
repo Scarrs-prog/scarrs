@@ -17,6 +17,7 @@ body {
 }
 
 /* ================= INTRO WELCOME ================= */
+
 #intro {
     position: fixed;
     width: 100%;
@@ -49,8 +50,9 @@ body {
 }
 
 /* ================= HEADER / HERO ================= */
+
 header {
-    background: 
+    background:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
         url("scarrs.png") center center / cover no-repeat;
     color: white;
@@ -89,31 +91,56 @@ header p {
 }
 
 /* ================= NAVIGATION ================= */
+
 nav {
     background: rgba(255,255,255,0.85);
     backdrop-filter: blur(10px);
-    padding: 18px 0;
-    text-align: center;
+    padding: 18px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #e5e7eb;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-nav a {
-    color: #1d1d1f;
-    text-decoration: none;
-    margin: 0 22px;
-    font-weight: 600;
-    font-size: 15px;
-    transition: 0.3s ease;
+.logo{
+    font-weight:700;
+    font-size:18px;
 }
 
-nav a:hover {
-    color: #0071e3;
+/* NAV LINKS */
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#1d1d1f;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    transition:0.3s ease;
+}
+
+.nav-links a:hover{
+    color:#0071e3;
+}
+
+/* HAMBURGER ICON */
+
+.menu-icon{
+display:none;
+font-size:28px;
+cursor:pointer;
 }
 
 /* ================= BUTTONS ================= */
+
 .btn {
     display: inline-block;
     padding: 14px 32px;
@@ -132,6 +159,7 @@ nav a:hover {
 }
 
 /* ================= SECTIONS ================= */
+
 .section {
     padding: 120px 20px;
     text-align: center;
@@ -146,6 +174,7 @@ nav a:hover {
 }
 
 /* ================= CARD CONTAINER ================= */
+
 .card-container {
     display: flex;
     justify-content: center;
@@ -154,6 +183,7 @@ nav a:hover {
 }
 
 /* ================= CARDS ================= */
+
 .card {
     width: 320px;
     padding: 35px;
@@ -189,44 +219,8 @@ nav a:hover {
     font-size: 15px;
 }
 
-/* ================= EXPANDABLE CONTENT ================= */
-.expand {
-    margin-top: 15px;
-    cursor: pointer;
-    font-weight: 600;
-    color: #0071e3;
-    transition: 0.3s;
-}
-
-.expand:hover {
-    color: #005bb5;
-}
-
-.expand-content {
-    display: none;
-    margin-top: 15px;
-    padding-top: 10px;
-    border-top: 1px solid #e5e7eb;
-}
-
-/* ================= PROGRESS BARS ================= */
-.progress {
-    width: 100%;
-    background: #e5e7eb;
-    height: 10px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
-.progress-bar {
-    height: 10px;
-    width: 0%;
-    background: #0071e3;
-    border-radius: 20px;
-    transition: width 0.5s ease;
-}
-
 /* ================= FOOTER ================= */
+
 footer {
     background: #111;
     color: #ccc;
@@ -240,31 +234,38 @@ footer strong {
     color: white;
 }
 
-/* ================= RESPONSIVE ================= */
-@media(max-width: 768px) {
-    header h1 {
-        font-size: 34px;
-    }
+/* ================= MOBILE NAVBAR ================= */
 
-    header p {
-        font-size: 16px;
-    }
+@media (max-width:768px){
 
-    .section h2 {
-        font-size: 28px;
-    }
+.menu-icon{
+display:block;
+}
 
-    .card {
-        width: 90%;
-    }
+.nav-links{
+position:absolute;
+top:70px;
+right:0;
+background:white;
+width:220px;
+flex-direction:column;
+padding:20px;
+display:none;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
 
-    nav a {
-        margin: 0 10px;
-        font-size: 14px;
-    }
+.nav-links li{
+margin:10px 0;
+}
+
+.nav-links.active{
+display:flex;
+}
+
 }
 
 /* ================= ANIMATIONS ================= */
+
 @keyframes slideUp {
     0% { opacity:0; transform: translateY(40px); }
     100% { opacity:1; transform: translateY(0); }
