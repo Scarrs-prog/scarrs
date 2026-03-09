@@ -206,20 +206,21 @@ footer{
 <!-- NAVBAR -->
 
 <nav>
-  <h2>Scarrs Blackprint</h2>
+<h2>Scarrs Blackprint</h2>
 
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#systems">Systems</a></li>
-    <li><a href="#blog">Insights</a></li>
-    <li><a href="earning.html">Earning</a></li>
-    <li><a href="earning-guide.html">Earning Guide</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="privacy.html">Privacy</a></li>
-    <li><a href="disclaimer.html">Disclaimer</a></li>
-  </ul>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#systems">Systems</a></li>
+<li><a href="#blog">Insights</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="earning.html">Earning</a></li>
+<li><a href="earning-guide.html">Earning Guide</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="privacy.html">Privacy</a></li>
+<li><a href="disclaimer.html">Disclaimer</a></li>
+</ul>
 
-  <button class="toggle-btn" onclick="toggleTheme()">Toggle</button>
+<button class="toggle-btn" onclick="toggleTheme()">Toggle</button>
 </nav>
 
 <!-- HERO -->
@@ -274,6 +275,34 @@ For creators & freelancers who want structured, predictable online income — no
 
 </section>
 
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+<h2 style="text-align:center;margin-bottom:60px;">My Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Scarrs Blackprint</h3>
+<p>A learning platform website I built.</p>
+<a href="https://thunderous-scarrs.netlify.app" target="_blank" class="btn">View Project</a>
+</div>
+
+<div class="card">
+<h3>Portfolio Website</h3>
+<p>A simple personal portfolio template.</p>
+<a href="#" class="btn">View Project</a>
+</div>
+
+<div class="card">
+<h3>Business Landing Page</h3>
+<p>A clean landing page for small businesses.</p>
+<a href="#" class="btn">View Project</a>
+</div>
+
+</div>
+</section>
+
 <!-- CTA -->
 
 <section style="text-align:center;">
@@ -315,25 +344,23 @@ Stop chasing random tactics. Start building structured systems designed for scal
 </div>
 </footer>
 
-<!-- TOGGLE SCRIPT -->
-
 <script>
 
-function toggleTheme() {
-  document.body.classList.toggle("light");
+function toggleTheme(){
+document.body.classList.toggle("light");
 
-  if (document.body.classList.contains("light")) {
-    localStorage.setItem("theme", "light");
-  } else {
-    localStorage.setItem("theme", "dark");
-  }
+if(document.body.classList.contains("light")){
+localStorage.setItem("theme","light");
+}else{
+localStorage.setItem("theme","dark");
+}
 }
 
-window.addEventListener("DOMContentLoaded", function () {
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    document.body.classList.add("light");
-  }
+window.addEventListener("DOMContentLoaded",function(){
+const savedTheme=localStorage.getItem("theme");
+if(savedTheme==="light"){
+document.body.classList.add("light");
+}
 });
 
 </script>
