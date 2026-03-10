@@ -1,242 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Scarrs Blackprint | Rare Income Systems</title>
+<title>Scarrs Blackprint | Digital Systems</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= ROOT ================= */
+/* ROOT */
 
 :root{
-  --bg:#0b0f19;
-  --card:#121826;
-  --text:#ffffff;
-  --muted:#8b9bb4;
-  --accent:#7c3aed;
-  --accent2:#00f0ff;
+--bg:#0b0f19;
+--card:#121826;
+--text:#ffffff;
+--muted:#8b9bb4;
+--accent:#7c3aed;
+--accent2:#00f0ff;
 }
 
 body.light{
-  --bg:#f5f7fa;
-  --card:#ffffff;
-  --text:#0f172a;
-  --muted:#475569;
+--bg:#f5f7fa;
+--card:#ffffff;
+--text:#0f172a;
+--muted:#475569;
 }
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Inter",sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Inter",sans-serif;
 }
 
 body{
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-  transition:0.4s;
+background:var(--bg);
+color:var(--text);
+transition:0.4s;
 }
 
 section{
-  padding:100px 8%;
+padding:100px 8%;
 }
 
 h1,h2,h3{
-  font-weight:800;
+font-weight:800;
 }
 
 p{
-  color:var(--muted);
-  line-height:1.6;
+color:var(--muted);
+line-height:1.6;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:20px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  backdrop-filter:blur(15px);
-  background:rgba(10,15,30,0.7);
-  z-index:1000;
+position:fixed;
+top:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(15px);
+background:rgba(10,15,30,0.7);
+z-index:1000;
 }
 
 nav h2{
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-/* NAV LINKS */
-
 .nav-links{
-  display:flex;
-  list-style:none;
-  gap:25px;
+display:flex;
+list-style:none;
+gap:25px;
 }
 
 nav a{
-  text-decoration:none;
-  color:var(--muted);
-  font-size:14px;
-  transition:0.3s;
+text-decoration:none;
+color:var(--muted);
+font-size:14px;
+transition:0.3s;
 }
 
 nav a:hover{
-  color:var(--accent2);
+color:var(--accent2);
 }
 
-/* HAMBURGER ICON */
+/* HAMBURGER */
 
 .menu-icon{
-  display:none;
-  font-size:28px;
-  cursor:pointer;
-  color:white;
+display:none;
+font-size:28px;
+cursor:pointer;
+color:white;
 }
 
-/* TOGGLE BUTTON */
+/* BUTTON */
 
-.toggle-btn{
-  padding:8px 16px;
-  border-radius:20px;
-  border:none;
-  cursor:pointer;
-  font-weight:600;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  color:white;
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+color:white;
+transition:0.3s;
 }
 
-/* ================= MOBILE MENU ================= */
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px rgba(124,58,237,0.4);
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+}
+
+.card{
+background:var(--card);
+padding:40px;
+border-radius:20px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding-top:200px;
+}
+
+.hero h1{
+font-size:3rem;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* FOOTER */
+
+footer{
+padding:60px 8%;
+background:var(--card);
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:40px;
+}
+
+.footer-grid a{
+display:block;
+text-decoration:none;
+color:var(--muted);
+margin-bottom:8px;
+}
+
+.footer-grid a:hover{
+color:var(--accent2);
+}
+
+.copyright{
+text-align:center;
+margin-top:40px;
+color:var(--muted);
+}
+
+/* MOBILE */
 
 @media(max-width:768px){
 
 .nav-links{
-  display:none;
-  flex-direction:column;
-  position:absolute;
-  top:70px;
-  right:0;
-  background:#111;
-  width:220px;
-  padding:25px;
-  border-radius:10px;
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+right:0;
+background:#111;
+width:220px;
+padding:25px;
 }
 
 .nav-links.active{
-  display:flex;
+display:flex;
 }
 
 .menu-icon{
-  display:block;
+display:block;
 }
 
-}
-
-/* ================= HERO ================= */
-
-.hero{
-  text-align:center;
-  padding-top:200px;
-}
-
-.hero h1{
-  font-size:3.2rem;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:40px;
-  padding:15px 35px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  color:white;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 30px rgba(124,58,237,0.4);
-}
-
-/* ================= GRID ================= */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:40px;
-}
-
-.card{
-  background:var(--card);
-  padding:40px;
-  border-radius:20px;
-  transition:0.4s;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 20px 50px rgba(0,0,0,0.4);
-}
-
-.blog{
-  background:var(--card);
-  padding:30px;
-  border-radius:20px;
-  margin-bottom:20px;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  padding:60px 8%;
-  background:var(--card);
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:40px;
-}
-
-.footer-grid h4{
-  margin-bottom:15px;
-}
-
-.footer-grid a{
-  display:block;
-  text-decoration:none;
-  color:var(--muted);
-  margin-bottom:8px;
-  font-size:14px;
-}
-
-.footer-grid a:hover{
-  color:var(--accent2);
-}
-
-.copyright{
-  text-align:center;
-  margin-top:40px;
-  color:var(--muted);
-  font-size:14px;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -250,109 +225,199 @@ footer{
 <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
 <ul class="nav-links">
+
 <li><a href="#">Home</a></li>
-<li><a href="#systems">Systems</a></li>
-<li><a href="#blog">Insights</a></li>
-<li><a href="#portfolio">Portfolio</a></li>
-<li><a href="earning.html">Earning</a></li>
-<li><a href="earning-guide.html">Earning Guide</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="privacy.html">Privacy</a></li>
-<li><a href="disclaimer.html">Disclaimer</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#mission">Mission</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#portfolio">Projects</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+
 </ul>
 
-<button class="toggle-btn" onclick="toggleTheme()">Toggle</button>
+<button class="btn" onclick="toggleTheme()">Toggle</button>
 
 </nav>
 
 <!-- HERO -->
 
 <section class="hero">
-<h1>Architect Scalable Income Systems</h1>
+
+<h1>I Build Digital Systems</h1>
+
 <p>
-For creators & freelancers who want structured, predictable online income — not random hustle.
+Web platforms, scalable websites, and digital frameworks.
 </p>
-<a href="#systems" class="btn">Explore Frameworks</a>
+
+<a href="#about" class="btn">Discover More</a>
+
 </section>
 
-<!-- CORE SYSTEMS -->
+<!-- ABOUT -->
 
-<section id="systems">
-<h2 style="text-align:center;margin-bottom:60px;">Our Core Systems</h2>
+<section id="about">
+
+<h2 style="text-align:center;margin-bottom:50px;">Who Built This?</h2>
+
+<p style="max-width:700px;margin:auto;text-align:center;">
+
+I'm Raghvender  — a web developer focused on building modern
+websites and scalable digital platforms.
+
+I created Scarrs Blackprint to help creators build
+structured online income systems instead of relying
+on random online tactics.
+
+</p>
+
+</section>
+
+<!-- MISSION -->
+
+<section id="mission">
+
+<h2 style="text-align:center;margin-bottom:60px;">Why I Build</h2>
+
+<p style="max-width:700px;margin:auto;text-align:center;">
+
+Most people create random online projects.
+
+I focus on building structured digital systems
+that scale and create long-term value.
+
+</p>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2 style="text-align:center;margin-bottom:60px;">Tools I Use</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3>Freelance OS</h3>
-<p>A structured client acquisition framework for serious freelancers.</p>
+<h3>HTML</h3>
+<p>Semantic and optimized website structure.</p>
 </div>
 
 <div class="card">
-<h3>Creator Monetization</h3>
-<p>Turn attention into revenue using audience positioning & offer design.</p>
+<h3>CSS</h3>
+<p>Modern responsive UI design.</p>
 </div>
 
 <div class="card">
-<h3>Digital Asset Engine</h3>
-<p>Build once. Sell infinitely. Scale income without trading time.</p>
+<h3>JavaScript</h3>
+<p>Interactive functionality.</p>
 </div>
 
-</div>
-</section>
-
-<!-- BLOG -->
-
-<section id="blog">
-<h2 style="text-align:center;margin-bottom:60px;">Insights & Framework Breakdowns</h2>
-
-<div class="blog">
-<h3>How to Scale Freelancing in 2026</h3>
-<p>Client acquisition psychology, pricing leverage & offer positioning explained.</p>
+<div class="card">
+<h3>UI Design</h3>
+<p>Clean premium interface design.</p>
 </div>
 
-<div class="blog">
-<h3>Digital Assets vs Active Income</h3>
-<p>Which model scales faster? A structured comparison.</p>
 </div>
 
 </section>
 
-<!-- PORTFOLIO -->
+<!-- PROJECTS -->
 
 <section id="portfolio">
-<h2 style="text-align:center;margin-bottom:60px;">My Projects</h2>
+
+<h2 style="text-align:center;margin-bottom:60px;">Things I've Built</h2>
 
 <div class="grid">
 
 <div class="card">
+
 <h3>Scarrs Blackprint</h3>
-<p>A learning platform website I built.</p>
-<a href="https://thunderous-scarrs.netlify.app" target="_blank" class="btn">View Project</a>
+
+<p>
+A platform designed to help creators build structured online income systems.
+</p>
+
+<a href="https://thunderous-scarrs.netlify.app" target="_blank" class="btn">
+View Project
+</a>
+
 </div>
 
 <div class="card">
+
 <h3>Portfolio Website</h3>
-<p>A simple personal portfolio template.</p>
+
+<p>
+Clean developer portfolio template.
+</p>
+
 <a href="#" class="btn">View Project</a>
+
 </div>
 
 <div class="card">
+
 <h3>Business Landing Page</h3>
-<p>A clean landing page for small businesses.</p>
+
+<p>
+Modern landing page for businesses.
+</p>
+
 <a href="#" class="btn">View Project</a>
+
 </div>
 
 </div>
+
 </section>
 
-<!-- CTA -->
+<!-- SERVICES -->
 
-<section style="text-align:center;">
-<h2>Ready To Build Your Income Architecture?</h2>
-<p style="max-width:650px;margin:auto;">
-Stop chasing random tactics. Start building structured systems designed for scale.
+<section id="services">
+
+<h2 style="text-align:center;margin-bottom:60px;">What I Can Help With</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Portfolio Websites</h3>
+<p>Modern personal websites.</p>
+</div>
+
+<div class="card">
+<h3>Business Websites</h3>
+<p>Professional business sites.</p>
+</div>
+
+<div class="card">
+<h3>Landing Pages</h3>
+<p>High converting landing pages.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" style="text-align:center;">
+
+<h2>Want To Build Something Together?</h2>
+
+<p style="max-width:600px;margin:auto;">
+
+If you're interested in building a website,
+platform, or digital product — let's connect.
+
 </p>
-<a href="earning-guide.html" class="btn">Start The Framework</a>
+
+<a href="mailto:raigiboy788@gmail.com" class="btn">
+
+Contact Me
+
+</a>
+
 </section>
 
 <!-- FOOTER -->
@@ -363,27 +428,29 @@ Stop chasing random tactics. Start building structured systems designed for scal
 
 <div>
 <h4>Platform</h4>
-<a href="earning.html">Earning</a>
-<a href="earning-guide.html">Earning Guide</a>
-<a href="contact.html">Contact</a>
+<a href="#">Home</a>
+<a href="#portfolio">Projects</a>
+<a href="#services">Services</a>
 </div>
 
 <div>
 <h4>Legal</h4>
-<a href="privacy.html">Privacy Policy</a>
+<a href="privacy.html">Privacy</a>
 <a href="disclaimer.html">Disclaimer</a>
 </div>
 
 <div>
 <h4>Company</h4>
-<a href="#">About</a>
-<a href="#">Mission</a>
+<a href="#about">About</a>
+<a href="#mission">Mission</a>
 </div>
 
 </div>
 
 <div class="copyright">
-© 2026 Scarrs Blackprint. All rights reserved.
+
+© 2026 Scarrs Blackprint
+
 </div>
 
 </footer>
@@ -391,6 +458,7 @@ Stop chasing random tactics. Start building structured systems designed for scal
 <script>
 
 function toggleTheme(){
+
 document.body.classList.toggle("light");
 
 if(document.body.classList.contains("light")){
@@ -398,18 +466,24 @@ localStorage.setItem("theme","light");
 }else{
 localStorage.setItem("theme","dark");
 }
+
 }
 
 window.addEventListener("DOMContentLoaded",function(){
+
 const savedTheme=localStorage.getItem("theme");
+
 if(savedTheme==="light"){
 document.body.classList.add("light");
 }
+
 });
 
 function toggleMenu(){
-const menu = document.querySelector(".nav-links");
+
+const menu=document.querySelector(".nav-links");
 menu.classList.toggle("active");
+
 }
 
 </script>
