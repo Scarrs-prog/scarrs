@@ -76,11 +76,12 @@ nav h2{
   -webkit-text-fill-color:transparent;
 }
 
-nav ul{
+/* NAV LINKS */
+
+.nav-links{
   display:flex;
   list-style:none;
   gap:25px;
-  flex-wrap:wrap;
 }
 
 nav a{
@@ -94,6 +95,17 @@ nav a:hover{
   color:var(--accent2);
 }
 
+/* HAMBURGER ICON */
+
+.menu-icon{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+  color:white;
+}
+
+/* TOGGLE BUTTON */
+
 .toggle-btn{
   padding:8px 16px;
   border-radius:20px;
@@ -102,6 +114,32 @@ nav a:hover{
   font-weight:600;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   color:white;
+}
+
+/* ================= MOBILE MENU ================= */
+
+@media(max-width:768px){
+
+.nav-links{
+  display:none;
+  flex-direction:column;
+  position:absolute;
+  top:70px;
+  right:0;
+  background:#111;
+  width:220px;
+  padding:25px;
+  border-radius:10px;
+}
+
+.nav-links.active{
+  display:flex;
+}
+
+.menu-icon{
+  display:block;
+}
+
 }
 
 /* ================= HERO ================= */
@@ -206,9 +244,12 @@ footer{
 <!-- NAVBAR -->
 
 <nav>
+
 <h2>Scarrs Blackprint</h2>
 
-<ul>
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<ul class="nav-links">
 <li><a href="#">Home</a></li>
 <li><a href="#systems">Systems</a></li>
 <li><a href="#blog">Insights</a></li>
@@ -221,6 +262,7 @@ footer{
 </ul>
 
 <button class="toggle-btn" onclick="toggleTheme()">Toggle</button>
+
 </nav>
 
 <!-- HERO -->
@@ -316,6 +358,7 @@ Stop chasing random tactics. Start building structured systems designed for scal
 <!-- FOOTER -->
 
 <footer>
+
 <div class="footer-grid">
 
 <div>
@@ -342,6 +385,7 @@ Stop chasing random tactics. Start building structured systems designed for scal
 <div class="copyright">
 © 2026 Scarrs Blackprint. All rights reserved.
 </div>
+
 </footer>
 
 <script>
