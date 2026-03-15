@@ -244,6 +244,12 @@ display:block;
 
 <section class="hero">
 
+<!-- Founder Image with Halo -->
+<div class="founder-container">
+    <div class="founder-halo"></div>
+    <img src="https://image2url.com/r2/default/images/1773573884124-34089ee6-493f-4c89-b24d-3a13755a04c3.jpg" alt="image" /> class="founder-img">
+</div>
+
 <h1>I Build Digital Systems</h1>
 
 <p>
@@ -253,7 +259,59 @@ Web platforms, scalable websites, and digital frameworks.
 <a href="#about" class="btn">Discover More</a>
 
 </section>
+<style>
+  /* Founder Hero with Gradient Halo */
+.founder-container {
+    position: relative;
+    width: 160px;           /* container size */
+    height: 160px;
+    margin: 0 auto 30px;    /* center and spacing */
+}
 
+.founder-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 15px 40px rgba(124,58,237,0.5);
+    transition: 0.3s;
+}
+
+.founder-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 60px rgba(124,58,237,0.7);
+}
+
+/* Glowing Gradient Halo */
+.founder-halo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,0.4), rgba(0,240,255,0.2), transparent 70%);
+    z-index: 1;
+    filter: blur(25px);
+    animation: haloPulse 4s infinite ease-in-out;
+}
+
+/* Halo animation for subtle glow */
+@keyframes haloPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+    }
+  }
+</style>
 <!-- ABOUT -->
 
 <section id="about">
