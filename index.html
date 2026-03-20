@@ -263,7 +263,42 @@ footer{
     display:block;
   }
 }
+/* SYSTEM SECTION */
+.system-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
 
+.system-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  padding:40px;
+  border-radius:25px;
+  text-align:center;
+  transition:0.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+.system-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(124,58,237,0.2),transparent);
+  opacity:0;
+  transition:0.5s;
+}
+
+.system-card:hover::after{
+  opacity:1;
+}
+
+.system-card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
 </style>
 </head>
 
@@ -324,30 +359,39 @@ I focus on building structured digital systems that scale and create long-term v
 <div class="card"><h3>UI Design</h3><p>Clean premium interface design.</p></div>
 </div>
 </section>
+<!-- DIGITAL SYSTEM SECTION -->
+<section id="system">
 
-<!-- PROJECTS -->
-<section id="portfolio">
-<h2 style="text-align:center;margin-bottom:60px;">Things I've Built</h2>
-<div class="grid">
-<div class="card">
+<h2 style="text-align:center;margin-bottom:20px;">
+A Complete Digital System
+</h2>
 
-<h3>Scarrs Blackprint</h3>
-
-<p>
-A platform designed to help creators build structured online income systems.
+<p style="text-align:center;max-width:700px;margin:auto;margin-bottom:70px;">
+This is not just a website — it’s a structured ecosystem designed to help you build, learn, and scale online.
 </p>
-<a href="#platform" class="btn">
-Launch Platform </a>
-<a href="earning.html">Earning Guide</a>
-<a href="skills.html">Skills</a>
+
+<div class="system-grid">
+
+<div class="system-card">
+<h3>📈 Earning Guide</h3>
+<p>Learn how to build structured income systems step-by-step.</p>
+<a href="earning.html" class="btn">Start Learning</a>
+</div>
+
+<div class="system-card">
+<h3>🧠 Skills</h3>
+<p>Master the exact skills required to build scalable platforms.</p>
+<a href="skills.html" class="btn">Explore Skills</a>
+</div>
+
+<div class="system-card">
+<h3>🚀 Platform Vision</h3>
+<p>Understand how digital systems are designed to grow and scale.</p>
+<a href="#about" class="btn">See Vision</a>
+</div>
 
 </div>
-<div class="card">
-<h3>Business Landing Page</h3>
-<p>Modern landing page for businesses.</p>
-<a href="#" class="btn">View Project</a>
-</div>
-</div>
+
 </section>
 
 <!-- SERVICES -->
