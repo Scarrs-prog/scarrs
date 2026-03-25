@@ -1,445 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Scarrs Blackprint | Digital Systems</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+<title>Scarrs Blackprint | Digital Systems Engineering</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-
-/* ROOT */
-:root{
-  --bg:#0b0f19;
-  --card:#121826;
-  --text:#ffffff;
-  --muted:#8b9bb4;
-  --accent:#7c3aed;
-  --accent2:#00f0ff;
-  --shadow:rgba(124,58,237,0.3);
+/* ROOT VARIABLES - Professional Enterprise Palette */
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #111727;
+  --bg-glass: rgba(255, 255, 255, 0.03);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent-primary: #8b5cf6;
+  --accent-secondary: #06b6d4;
+  --accent-tertiary: #10b981;
+  --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 50%, #10b981 100%);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-glass: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
 }
 
-body.light{
-  --bg:#f5f7fa;
-  --card:#ffffff;
-  --text:#0f172a;
-  --muted:#475569;
-  --shadow:rgba(124,58,237,0.1);
+body.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-glass: rgba(0, 0, 0, 0.02);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border: rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-glass: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Inter",sans-serif;
-  scroll-behavior:smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-body{
-  background:var(--bg);
-  color:var(--text);
-  transition:0.4s;
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-section{
-  padding:120px 8%;
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
 }
 
-h1,h2,h3{
-  font-weight:800;
-  letter-spacing:0.5px;
+section {
+  padding: 120px 0;
 }
 
-p{
-  color:var(--muted);
-  line-height:1.8;
-  font-size:1rem;
+h1, h2, h3, h4 {
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 /* NAVBAR */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:20px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  backdrop-filter:blur(15px);
-  background:rgba(10,15,30,0.7);
-  z-index:1000;
-  transition:0.3s;
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  background: rgba(10, 14, 26, 0.95);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-nav h2{
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  font-size:1.6rem;
+.navbar.scrolled {
+  padding: 1rem 5%;
+  backdrop-filter: blur(30px);
+  background: rgba(10, 14, 26, 0.98);
 }
 
-.nav-links{
-  display:flex;
-  list-style:none;
-  gap:30px;
+.logo {
+  font-size: 1.875rem;
+  font-weight: 900;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-nav a{
-  text-decoration:none;
-  color:var(--muted);
-  font-size:14px;
-  transition:0.3s;
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
 }
 
-nav a:hover{
-  color:var(--accent2);
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-/* HAMBURGER */
-.menu-icon{
-  display:none;
-  font-size:28px;
-  cursor:pointer;
-  color:white;
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  transition: width 0.3s ease;
 }
 
-/* BUTTON */
-.btn{
-  display:inline-block;
-  margin-top:30px;
-  padding:15px 40px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  color:white;
-  transition:0.3s;
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
 }
 
-.btn:hover{
-  transform:translateY(-5px) scale(1.03);
-  box-shadow:0 15px 40px var(--shadow);
+.nav-links a:hover {
+  color: var(--text-primary);
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:40px;
+/* BUTTON SYSTEM */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
 }
 
-/* CARD */
-.card{
-  background:var(--card);
-  padding:40px;
-  border-radius:25px;
-  transition:0.4s;
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 10px 30px var(--shadow);
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
 }
 
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 20px 60px var(--shadow);
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-primary);
 }
 
 /* HERO */
-.hero{
-  text-align:center;
-  padding-top:180px;
-  position:relative;
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 140px;
 }
 
-.hero h1{
-  font-size:3.5rem;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-top:20px;
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.hero p{
-  margin-top:15px;
-  font-size:1.1rem;
-  color:var(--muted);
-  max-width:700px;
-  margin-left:auto;
-  margin-right:auto;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* Founder Image + Halo */
-.founder-container{
-  position:relative;
-  width:180px;
-  height:180px;
-  margin:0 auto;
+.hero-subtitle {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
 }
 
-.founder-img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid var(--accent);
-  position:relative;
-  z-index:2;
-  box-shadow:0 15px 50px var(--shadow);
-  transition:0.3s;
+.hero h1 {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
 }
 
-.founder-img:hover{
-  transform:scale(1.05);
-  box-shadow:0 25px 80px var(--shadow);
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 4rem 0;
+  flex-wrap: wrap;
 }
 
-.founder-halo{
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:200px;
-  height:200px;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(124,58,237,0.4), rgba(0,240,255,0.15), transparent 70%);
-  z-index:1;
-  filter:blur(25px);
-  animation:haloPulse 4s infinite ease-in-out;
+.stat {
+  text-align: center;
 }
 
-@keyframes haloPulse{
-  0%,100%{transform:translate(-50%,-50%) scale(1); opacity:0.8;}
-  50%{transform:translate(-50%,-50%) scale(1.1); opacity:1;}
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* FOUNDER */
+.founder-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 4rem auto 0;
+}
+
+.founder-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(139, 92, 246, 0.3);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.founder-img:hover {
+  transform: scale(1.05) rotate(3deg);
+  border-color: var(--accent-primary);
+}
+
+.founder-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.15), transparent 60%);
+  z-index: 1;
+  animation: haloRotate 20s linear infinite, haloPulse 4s ease-in-out infinite;
+}
+
+/* SECTION TITLES */
+.section-title {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.section-title h2 {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+}
+
+/* GRID SYSTEM */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.system-grid {
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2.5rem;
+}
+
+/* CARD SYSTEM */
+.card, .system-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(25px);
+  border: 1px solid var(--border);
+  padding: 3.5rem 3rem;
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card::before, .system-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before, .system-card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover, .system-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-glass);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.system-card i {
+  font-size: 4rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.card-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* PROCESS SECTION */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.process-step {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.process-step::before {
+  content: counter(step);
+  counter-reset: step;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--accent-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.process-step h4 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+/* TESTIMONIALS */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2.5rem;
+}
+
+.testimonial {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  padding: 3rem;
+  border-radius: 20px;
+  position: relative;
+}
+
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  border: 3px solid var(--accent-primary);
+}
+
+.testimonial-text {
+  font-style: italic;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 /* FOOTER */
-footer{
-  padding:80px 8%;
-  background:var(--card);
+footer {
+  padding: 80px 0 40px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  margin-top: 100px;
 }
 
-.footer-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:40px;
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
 }
 
-.footer-grid a{
-  display:block;
-  text-decoration:none;
-  color:var(--muted);
-  margin-bottom:8px;
+.footer-grid h4 {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
-.footer-grid a:hover{
-  color:var(--accent2);
+.footer-grid a {
+  display: block;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
 }
 
-.copyright{
-  text-align:center;
-  margin-top:40px;
-  color:var(--muted);
+.footer-grid a:hover {
+  color: var(--accent-primary);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
 }
 
 /* MOBILE */
-@media(max-width:768px){
-  .nav-links{
-    display:none;
-    flex-direction:column;
-    position:absolute;
-    top:70px;
-    right:0;
-    background:#111;
-    width:220px;
-    padding:25px;
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    gap: 1.5rem;
   }
-  .nav-links.active{
-    display:flex;
+  
+  .nav-links.active {
+    display: flex;
   }
-  .menu-icon{
-    display:block;
+  
+  .menu-icon {
+    display: block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    background: none;
+    border: none;
   }
-}
-/* SYSTEM SECTION */
-.system-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
+  
+  section {
+    padding: 80px 0;
+  }
+  
+  .hero {
+    padding-top: 120px;
+    min-height: auto;
+  }
+  
+  .hero-stats {
+    gap: 2rem;
+  }
+  
+  .grid, .system-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
-.system-card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  backdrop-filter:blur(18px);
-  padding:40px;
-  border-radius:25px;
-  text-align:center;
-  transition:0.4s;
-  position:relative;
-  overflow:hidden;
-}
-
-.system-card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,rgba(124,58,237,0.2),transparent);
-  opacity:0;
-  transition:0.5s;
-}
-
-.system-card:hover::after{
-  opacity:1;
-}
-
-.system-card:hover{
-  transform:translateY(-10px) scale(1.03);
-  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
-
 <body>
-
 <!-- NAVBAR -->
-<nav>
-<h2>Scarrs Blackprint</h2>
-<div class="menu-icon" onclick="toggleMenu()">☰</div>
-<ul class="nav-links">
-<li><a href="#">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#mission">Mission</a></li>
-<li><a href="earning-guide.html">Guide</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<button class="btn" onclick="toggleTheme()">Toggle</button>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-<div class="founder-container">
-  <div class="founder-halo"></div>
-  <img src="https://image2url.com/r2/default/images/1773573884124-34089ee6-493f-4c89-b24d-3a13755a04c3.jpg" alt="Raghvender Founder" class="founder-img">
-</div>
-<h1>I Build Digital Systems</h1>
-<p>Web platforms, scalable websites, and digital frameworks.</p>
-<a href="#about" class="btn">Discover More</a>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-<h2 style="text-align:center;margin-bottom:50px;">Who Built This?</h2>
-<p style="max-width:700px;margin:auto;text-align:center;">
-I'm Raghvender — a web developer focused on building modern websites and scalable digital platforms.<br>
-I created Scarrs Blackprint to help creators build structured online income systems instead of relying on random online tactics.
-</p>
-</section>
-
-<!-- MISSION -->
-<section id="mission">
-<h2 style="text-align:center;margin-bottom:60px;">Why I Build</h2>
-<p style="max-width:700px;margin:auto;text-align:center;">
-Most people create random online projects.<br>
-I focus on building structured digital systems that scale and create long-term value.
-</p>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-<h2 style="text-align:center;margin-bottom:60px;">Tools I Use</h2>
-<div class="grid">
-<div class="card"><h3>HTML</h3><p>Semantic and optimized website structure.</p></div>
-<div class="card"><h3>CSS</h3><p>Modern responsive UI design.</p></div>
-<div class="card"><h3>JavaScript</h3><p>Interactive functionality.</p></div>
-<div class="card"><h3>UI Design</h3><p>Clean premium interface design.</p></div>
-</div>
-</section>
-<!-- DIGITAL SYSTEM SECTION -->
-<section id="system">
-
-<h2 style="text-align:center;margin-bottom:20px;">
-A Complete Digital System
-</h2>
-
-<p style="text-align:center;max-width:700px;margin:auto;margin-bottom:70px;">
-This is not just a website — it’s a structured ecosystem designed to help you build, learn, and scale online.
-</p>
-
-<div class="system-grid">
-
-<div class="system-card">
-<h3>📈 Earning Guide</h3>
-<p>Learn how to build structured income systems step-by-step.</p>
-<a href="https://scarrs-prog.github.io/earning.html" class="btn">
-Earning Guide
-</a>
-</div>
-
-<div class="system-card">
-<h3>🧠 Skills</h3>
-<p>Master the exact skills required to build scalable platforms.</p>
-<a href="skills.html" class="btn">Explore Skills</a>
-</div>
-
-<div class="system-card">
-<h3>🚀 Platform Vision</h3>
-<p>Understand how digital systems are designed to grow and scale.</p>
-<a href="#about" class="btn"> Vision</a>
-</div>
-
-</div>
-
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-<h2 style="text-align:center;margin-bottom:60px;">What I Can Help With</h2>
-<div class="grid">
-<div class="card"><h3>Portfolio Websites</h3><p>Modern personal websites.</p></div>
-<div class="card"><h3>Business Websites</h3><p>Professional business sites.</p></div>
-<div class="card"><h3>Landing Pages</h3><p>High converting landing pages.</p></div>
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" style="text-align:center;">
-<h2>Want To Build Something Together?</h2>
-<p style="max-width:600px;margin:auto;">If you're interested in building a website, platform, or digital product — let's connect.</p>
-<a href="mailto:raigiboy788@gmail.com" class="btn">Contact Me</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-<div class="footer-grid">
-<div><h4>Platform</h4><a href="#">Home</a><a href="#portfolio">Projects</a><a href="#services">Services</a></div>
-<div><h4>Legal</h4><a href="privacy.html">Privacy</a><a href="disclaimer.html">Disclaimer</a></div>
-<div><h4>Company</h4><a href="#about">About</a><a href="#mission">Mission</a></div>
-</div>
-<div class="copyright">© 2026 Scarrs Blackprint</div>
-</footer>
-
-<script>
-function toggleTheme(){
-  document.body.classList.toggle("light");
-  if(document.body.classList.contains("light")){
-    localStorage.setItem("theme","light");
-  }else{
-    localStorage.setItem("theme","dark");
-  }
-}
-window.addEventListener("DOMContentLoaded",function(){
-  const savedTheme=localStorage.getItem("theme");
-  if(savedTheme==="light"){ document.body.classList.add("light"); }
-});
-function toggleMenu(){
-  const menu=document.querySelector(".nav-links");
-  menu.classList.toggle("active");
-}
-</script>
-
-</body>
-</html>
+<nav class="navbar" id="navbar">
+  <div class="logo">Scarrs Blackprint</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#systems">Systems</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="earning-guide.html">Earning Guide</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <button class="btn btn-secondary" onclick="toggleTheme()" style="padding: 0.75rem 1.5rem
