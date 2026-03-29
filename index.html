@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Scarrs Blackprint | Digital Systems Engineering</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
-/* ROOT VARIABLES - Professional Enterprise Palette */
+/* ROOT VARIABLES - Professional Palette */
 :root {
   --bg-primary: #0a0e1a;
   --bg-secondary: #111727;
@@ -17,7 +21,6 @@
   --text-muted: #94a3b8;
   --accent-primary: #8b5cf6;
   --accent-secondary: #06b6d4;
-  --accent-tertiary: #10b981;
   --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 50%, #10b981 100%);
   --border: rgba(255, 255, 255, 0.08);
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -55,14 +58,10 @@ body {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.container {
+section {
+  padding: 120px 5%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 5%;
-}
-
-section {
-  padding: 120px 0;
 }
 
 h1, h2, h3, h4 {
@@ -71,9 +70,9 @@ h1, h2, h3, h4 {
   letter-spacing: -0.025em;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: 1.75rem; }
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
+h3 { font-size: 1.5rem; }
 h4 { font-size: 1.25rem; }
 
 p {
@@ -82,7 +81,7 @@ p {
   line-height: 1.8;
 }
 
-/* NAVBAR */
+/* NAVBAR - Professional */
 .navbar {
   position: fixed;
   top: 0;
@@ -105,7 +104,7 @@ p {
 }
 
 .logo {
-  font-size: 1.875rem;
+  font-size: 1.75rem;
   font-weight: 900;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -116,7 +115,7 @@ p {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -124,8 +123,8 @@ p {
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 1rem;
-  padding: 0.75rem 0;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
   position: relative;
   transition: all 0.3s ease;
 }
@@ -177,7 +176,7 @@ p {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   transition: left 0.5s;
 }
 
@@ -186,7 +185,7 @@ p {
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -198,29 +197,26 @@ p {
 
 .btn-secondary:hover {
   background: var(--accent-primary);
+  transform: translateY(-2px);
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
   text-align: center;
+  padding-top: 220px;
   position: relative;
   overflow: hidden;
-  padding-top: 140px;
 }
 
-.hero-bg {
+.hero::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -228,19 +224,8 @@ p {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
-}
-
-.hero-subtitle {
-  display: inline-block;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 600;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
 }
 
 .hero h1 {
@@ -249,41 +234,21 @@ p {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 2rem;
+  position: relative;
 }
 
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
-  margin: 4rem 0;
-  flex-wrap: wrap;
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 900;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: block;
-}
-
-.stat-label {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
 }
 
 /* FOUNDER */
 .founder-container {
   position: relative;
-  width: 220px;
-  height: 220px;
-  margin: 4rem auto 0;
+  width: 200px;
+  height: 200px;
+  margin: 3rem auto 0;
 }
 
 .founder-img {
@@ -299,7 +264,7 @@ p {
 }
 
 .founder-img:hover {
-  transform: scale(1.05) rotate(3deg);
+  transform: scale(1.05) rotate(5deg);
   border-color: var(--accent-primary);
 }
 
@@ -307,8 +272,8 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 240px;
-  height: 240px;
+  width: 220px;
+  height: 220px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: conic-gradient(from 0deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.15), transparent 60%);
@@ -316,62 +281,49 @@ p {
   animation: haloRotate 20s linear infinite, haloPulse 4s ease-in-out infinite;
 }
 
-/* SECTION TITLES */
-.section-title {
-  text-align: center;
-  margin-bottom: 5rem;
+@keyframes haloRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-.section-title h2 {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-.section-title h2::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: var(--accent-gradient);
-  border-radius: 2px;
-}
-
-.section-subtitle {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 1.25rem;
+@keyframes haloPulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
 }
 
 /* GRID SYSTEM */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
+  margin-top: 5rem;
 }
 
 .system-grid {
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
 }
 
 /* CARD SYSTEM */
 .card, .system-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(20px);
   border: 1px solid var(--border);
-  padding: 3.5rem 3rem;
+  padding: 3rem;
   border-radius: 24px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+}
+
+.card {
   text-align: center;
+}
+
+.card:hover, .system-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-glass);
+  border-color: rgba(139, 92, 246, 0.2);
 }
 
 .card::before, .system-card::before {
@@ -390,100 +342,48 @@ p {
   transform: scaleX(1);
 }
 
-.card:hover, .system-card:hover {
-  transform: translateY(-12px);
-  box-shadow: var(--shadow-glass);
-  border-color: rgba(139, 92, 246, 0.3);
+.system-card {
+  text-align: center;
 }
 
 .system-card i {
-  font-size: 4rem;
+  font-size: 3rem;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   display: block;
 }
 
-.card-icon {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
+/* SECTIONS */
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
-/* PROCESS SECTION */
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.process-step {
-  position: relative;
-  padding-left: 3rem;
-}
-
-.process-step::before {
-  content: counter(step);
-  counter-reset: step;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2.5rem;
-  height: 2.5rem;
+.section-title h2 {
   background: var(--accent-gradient);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 1.125rem;
-}
-
-.process-step h4 {
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-/* TESTIMONIALS */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2.5rem;
-}
-
-.testimonial {
-  background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
-  padding: 3rem;
-  border-radius: 20px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   position: relative;
 }
 
-.testimonial-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-bottom: 1.5rem;
-  border: 3px solid var(--accent-primary);
-}
-
-.testimonial-text {
-  font-style: italic;
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-  line-height: 1.7;
-}
-
-.testimonial-author {
-  font-weight: 600;
-  color: var(--text-primary);
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
 }
 
 /* FOOTER */
 footer {
-  padding: 80px 0 40px;
+  padding: 80px 5% 40px;
   background: var(--bg-secondary);
   border-top: 1px solid var(--border);
   margin-top: 100px;
@@ -491,7 +391,7 @@ footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 3rem;
   margin-bottom: 3rem;
 }
@@ -514,11 +414,11 @@ footer {
   color: var(--accent-primary);
 }
 
-.footer-bottom {
+.copyright {
   text-align: center;
-  padding-top: 3rem;
-  border-top: 1px solid var(--border);
   color: var(--text-muted);
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
 }
 
 /* MOBILE */
@@ -533,7 +433,7 @@ footer {
     flex-direction: column;
     padding: 2rem;
     border-top: 1px solid var(--border);
-    gap: 1.5rem;
+    gap: 1rem;
   }
   
   .nav-links.active {
@@ -550,16 +450,11 @@ footer {
   }
   
   section {
-    padding: 80px 0;
+    padding: 80px 5%;
   }
   
   .hero {
-    padding-top: 120px;
-    min-height: auto;
-  }
-  
-  .hero-stats {
-    gap: 2rem;
+    padding-top: 160px;
   }
   
   .grid, .system-grid {
@@ -568,11 +463,22 @@ footer {
   }
 }
 
+@media (max-width: 480px) {
+  .card, .system-card {
+    padding: 2rem;
+  }
+}
+
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ANIMATIONS */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -580,29 +486,82 @@ footer {
   }
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+.card, .system-card {
+  animation: fadeInUp 0.6s ease forwards;
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.2s; }
+.card:nth-child(4) { animation-delay: 0.3s; }
 </style>
 </head>
+
 <body>
+
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="logo">Scarrs Blackprint</div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#home" class="active">Home</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#systems">Systems</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="#mission">Mission</a></li>
     <li><a href="earning-guide.html">Earning Guide</a></li>
+    <li><a href="#systems">Systems</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div style="display: flex; gap: 1rem; align-items: center;">
-    <button class="btn btn-secondary" onclick="toggleTheme()" style="padding: 0.75rem 1.5rem
+    <button class="btn btn-secondary" onclick="toggleTheme()" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">
+      <i class="fas fa-moon"></i>
+    </button>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="founder-container">
+      <div class="founder-halo"></div>
+      <img src="https://image2url.com/r2/default/images/1773573884124-34089ee6-493f-4c89-b24d-3a13755a04c3.jpg" 
+           alt="Raghvender - Digital Systems Engineer" class="founder-img">
+    </div>
+    <h1>Digital Systems Engineering</h1>
+    <p>Building scalable web platforms, structured digital ecosystems, and revenue-generating frameworks for the modern creator economy.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="#systems" class="btn"><i class="fas fa-rocket"></i> Explore Systems</a>
+      <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-title">
+    <h2>Who Built This?</h2>
+  </div>
+  <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+    <p style="font-size: 1.25rem;">
+      <strong>Raghvender</strong> — Systems Architect & Web Engineer<br>
+      I design structured digital platforms that generate consistent revenue, not random tactics.
+    </p>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="section-title">
+    <h2>Engineering Philosophy</h2>
+  </div>
+  <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+    <p style="font-size: 1.25rem;">
+      Random projects fail. Structured systems scale.<br>
+      I build digital infrastructure designed for long-term growth and predictable revenue.
+    </p>
+  </div>
+</section>
+
+<!-- CORE SYSTEMS -->
+<section id="systems" class="system-section">
+  <div class="section-title
